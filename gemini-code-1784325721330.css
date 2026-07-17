@@ -1,0 +1,124 @@
+:root {
+    /* الوضع الفاتح - ألوان التراث والقهوة */
+    --bg-color: #F9F6F0; /* لون الورق العتيق */
+    --text-color: #3C2A21; /* بني داكن كحبات القهوة */
+    --accent-color: #D4A373; /* كراميل/قهوة فاتحة */
+    --card-bg: #FFFFFF;
+    --border-color: #E6E0D4;
+}
+
+[data-theme="dark"] {
+    /* الوضع الداكن - انسيابي ومريح للعين */
+    --bg-color: #1A1210; /* بني شديد الدكنة */
+    --text-color: #EAE0D5;
+    --accent-color: #C89F70;
+    --card-bg: #2C211D;
+    --border-color: #3E322D;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+h1, h2, h3, .subtitle {
+    font-family: 'Amiri', serif;
+}
+
+header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.btn-theme {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+main {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    gap: 2rem;
+}
+
+.post-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.post-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.post-content {
+    font-size: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Amiri', serif;
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+}
