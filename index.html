@@ -1,333 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مدونة أحمد زين</title>
-  <meta name="description" content="مدونة عربية شخصية في الفقه الحنبلي وأصول الفقه ومقاصد الشريعة وعلم الاجتماع وعلم النفس والاقتصاد الإسلامي." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <a class="skip-link" href="#content">تجاوز إلى المحتوى</a>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 9h10a3 3 0 0 1 0 6H6a3 3 0 0 1-3-3V8a2 2 0 0 1 2-2h10"></path>
-            <path d="M15 10h2a2 2 0 1 1 0 4h-2"></path>
-            <path d="M8 4c0 1-.8 1.5-.8 2.5S8 8 8 9"></path>
-            <path d="M12 4c0 1-.8 1.5-.8 2.5S12 8 12 9"></path>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <strong>أحمد زين</strong>
-          <span>مدونة في الفقه والفكر والإنسان</span>
-        </div>
-      </div>
-      <nav class="nav-links" aria-label="التنقل الرئيسي">
-        <a href="#topics">التخصصات</a>
-        <a href="#about">الرؤية</a>
-        <a href="#coffee">القهوة والكتابة</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="مدونة شخصية تجمع الفقه والطب والفكر والأثر." />
+    <title>رِواق | مدونة محمد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="coffee-grain"></div>
+    <header class="site-header">
+      <a class="brand" href="#الرئيسية" aria-label="رِواق، الصفحة الرئيسية"><span>رِواق</span><i></i></a>
+      <button class="menu-button" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span></button>
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a class="active" href="#الرئيسية">الرئيسية</a><a href="#المقالات">المقالات</a><a href="#المسارات">المسارات</a><a href="#عني">عنّي</a>
       </nav>
-      <div class="nav-actions">
-        <button class="theme-toggle" data-theme-toggle aria-label="تبديل الوضع اللوني">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <a class="cta-link" href="#content">ابدأ القراءة</a>
-      </div>
-    </div>
-  </header>
+      <a class="coffee-link" href="#قهوة"><span>رفيق القراءة</span><b>☕</b></a>
+    </header>
 
-  <main id="content">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">مدونة عربية شخصية · علم ومعنى · قهوة وتركيز</span>
-          <h1>مساحة كتابة تجمع الفقه الحنبلي وأصوله، والمقاصد، والإنسان، والاقتصاد الإسلامي</h1>
-          <p>
-            هذا التصميم مهيأ لمدونة شخصية عربية بهوية هادئة ومعاصرة، يوازن بين الجدية الأكاديمية والدفء الإنساني؛
-            بحيث يظهر تخصّصك الفقهي والفكري، مع ملمح بصري واضح لحب القهوة بوصفها رفيقة التأمل والكتابة.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#topics">استعراض المحاور</a>
-            <a class="btn btn-secondary" href="#about">تعريف المدونة</a>
-          </div>
-          <div class="hero-meta" aria-label="ملامح المدونة">
-            <article class="meta-card">
-              <strong>هوية عربية</strong>
-              <span>خط واضح، مساحات مريحة، وتوازن بين التراث والحداثة.</span>
-            </article>
-            <article class="meta-card">
-              <strong>نزعة بحثية</strong>
-              <span>مناسب للمقالات الطويلة والتحليلات المنهجية.</span>
-            </article>
-            <article class="meta-card">
-              <strong>حضور شخصي</strong>
-              <span>القهوة هنا ليست زينة، بل جزء من مزاج الكتابة.</span>
-            </article>
-          </div>
+    <main id="الرئيسية">
+      <section class="hero">
+        <p class="eyebrow">بِسْمِ اللهِ نَبْدَأُ</p>
+        <h1>معرفةٌ تُنير<br /><em>والحياةُ تُعلِّم.</em></h1>
+        <p class="hero-copy">مساحة شخصية أتأمل فيها الإنسانَ: فقهًا يرشده، وطبًا يصونه، ونفسًا تفهمه، وفكرًا يوسّع أفقه.</p>
+        <div class="hero-actions"><a class="button primary" href="#المقالات">ابدأ القراءة <span>←</span></a><a class="text-link" href="#عني">تعرّف إليّ <span>↙</span></a></div>
+        <div class="hero-meta"><span>مدوّنة شخصية</span><i></i><span>قاهرة · مصر</span><i></i><span id="today"></span></div>
+        <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="arch arch-1"></div><div class="arch arch-2"></div><div class="arch arch-3"></div><div class="book"></div><div class="cup">☕</div><small>تأنَّ</small></div>
+      </section>
+
+      <section class="featured section" id="المقالات">
+        <div class="section-heading"><div><p class="eyebrow">مِنْ رِوَاقِ الْقِرَاءَة</p><h2>أحدث الكتابات</h2></div><a class="text-link" href="posts.html">كل المقالات <span>←</span></a></div>
+        <div class="articles-grid">
+          <article class="article-card lead-card"><div class="card-visual jurisprudence"><span>ف</span><div class="lines"></div></div><div class="card-body"><div class="category"><span>فقه ومقاصد</span><time>١٢ يوليو ٢٠٢٦</time></div><h3><a href="posts/maqasid.html">حين يلتقي النصّ بمقصد الرحمة</a></h3><p>تأملات في كيف يمنحنا فقه المقاصد عينًا أوسع لقراءة تفاصيل الحياة وأسئلتها المتجددة.</p><a class="read-link" href="posts/maqasid.html">اقرأ المقال <span>←</span></a></div></article>
+          <article class="article-card"><div class="card-visual medicine"><span>✣</span></div><div class="card-body"><div class="category"><span>طب وإنسان</span><time>٠٥ يوليو ٢٠٢٦</time></div><h3><a href="#">ما الذي تقوله أجسادنا حين نصمت؟</a></h3><p>عن الإصغاء الهادئ لإشارات الجسد، حيث تبدأ العناية قبل العلاج.</p><a class="read-link" href="#">اقرأ المقال <span>←</span></a></div></article>
+          <article class="article-card"><div class="card-visual psychology"><span>◌</span><div class="orbit"></div></div><div class="card-body"><div class="category"><span>نفس وفكر</span><time>٢٧ يونيو ٢٠٢٦</time></div><h3><a href="#">الطمأنينة ليست غياب الضجيج</a></h3><p>ملاحظات عن صناعة السكينة وسط إيقاع الأيام المتسارع.</p><a class="read-link" href="#">اقرأ المقال <span>←</span></a></div></article>
         </div>
-        <div class="hero-visual">
-          <figure class="hero-image">
-            <img src="hero-image.png" alt="صورة غلاف حديثة لمدونة عربية تجمع الفقه والعلوم الإنسانية والقهوة" loading="eager" decoding="async">
-          </figure>
-          <div class="floating-note">
-            <strong>مركز الثقل البصري</strong>
-            <span>صورة هادئة توحّد الفقه والمعرفة الإنسانية والبعد الشخصي في مشهد واحد.</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="topics">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>المحاور الرئيسة</h2>
-            <p>بطاقات المحاور هنا تمثل البنية الأولى للمدونة، ويمكن تحويل كل بطاقة لاحقًا إلى قسم مقالات مستقل أو صفحة أرشيف متخصصة.</p>
-          </div>
-        </div>
-        <div class="topics">
-          <article class="topic-card">
-            <div class="topic-icon">☕</div>
-            <h3>الفقه الحنبلي</h3>
-            <p>عرض المسائل، تحرير المذهب، وبناء المقالات على لغة علمية واضحة تحافظ على الروح التراثية دون جمود.</p>
-          </article>
-          <article class="topic-card">
-            <div class="topic-icon">∴</div>
-            <h3>أصول الفقه</h3>
-            <p>تحليل الأدلة، مناهج الاستدلال، وبناء الملكة الأصولية بأسلوب يصلح للتدريس والبحث والكتابة العامة المتخصصة.</p>
-          </article>
-          <article class="topic-card">
-            <div class="topic-icon">⌘</div>
-            <h3>مقاصد الشريعة</h3>
-            <p>ربط الجزئيات بالكليات، ومناقشة الامتداد المقاصدي في القضايا المعاصرة دون تفريط في الضبط المنهجي.</p>
-          </article>
-          <article class="topic-card">
-            <div class="topic-icon">◎</div>
-            <h3>علم الاجتماع</h3>
-            <p>قراءة البنى الاجتماعية، والعلاقات بين القيم والمؤسسات والتحولات الثقافية في المجتمعات المسلمة المعاصرة.</p>
-          </article>
-          <article class="topic-card">
-            <div class="topic-icon">◔</div>
-            <h3>علم النفس</h3>
-            <p>مقالات في السلوك والدافعية والانحيازات والإدراك، مع مساحة للتأمل في الإنسان من زاوية علمية ومعنوية.</p>
-          </article>
-          <article class="topic-card">
-            <div class="topic-icon">↗</div>
-            <h3>الاقتصاد الإسلامي</h3>
-            <p>مناقشات في المال والتمويل والعدالة التوزيعية، مع ربط النظرية الاقتصادية بالبنية الفقهية والمقاصدية.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+      <section class="paths section" id="المسارات"><div class="section-heading"><div><p class="eyebrow">خُيُوطُ الْمَعْرِفَة</p><h2>مسارات أكتب فيها</h2></div></div><div class="path-list"><a href="posts.html?tag=fiqh"><b>٠١</b><span>الفقه والأصول والمقاصد</span><i>←</i></a><a href="posts.html?tag=medicine"><b>٠٢</b><span>الطب والصيدلة</span><i>←</i></a><a href="posts.html?tag=psychology"><b>٠٣</b><span>النفس وتزكيتها</span><i>←</i></a><a href="posts.html?tag=academic"><b>٠٤</b><span>البحث الأكاديمي والاقتصاد</span><i>←</i></a></div></section>
 
-    <section id="about">
-      <div class="container about-grid">
-        <article class="panel">
-          <h3>فكرة التصميم</h3>
-          <p>
-            اعتمدتُ هنا لغة بصرية تميل إلى الهدوء والانسياب: ألوان دافئة، تباين محسوب، خطوط عربية مناسبة للقراءة الطويلة،
-            ومساحات بيضاء تمنح المقالات ثقلًا لا فوضى. الهدف أن تبدو المدونة شخصية ومحترفة في الوقت نفسه.
-          </p>
-        </article>
-        <article class="panel">
-          <h3>كيف تتوسع لاحقًا</h3>
-          <ul>
-            <li>إضافة صفحة مقالات كاملة مع بطاقات أرشيف.</li>
-            <li>إضافة صفحة تعريف وسيرة علمية وروابط النشر.</li>
-            <li>ربط النموذج لاحقًا بمنصة نشر فعلية مثل GitHub Pages أو Netlify CMS أو WordPress Headless.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+      <section class="about section" id="عني"><div class="about-mark">ر</div><div><p class="eyebrow">صَاحِبُ الرِّوَاق</p><h2>أؤمن أن المعرفة<br />تُصبح أجمل حين <em>تلامس الحياة.</em></h2><p>أنا محمد، قارئ وباحث شغوف بصلات العلم بالحياة. هنا أدوّن أسئلة الطريق، وخلاصات القراءة، وما تعلّمه لي التجربة اليومية.</p><a class="button outline" href="about.html">المزيد عني <span>←</span></a></div></section>
 
-    <section id="coffee">
-      <div class="container">
-        <div class="coffee-band">
-          <h2>القهوة هنا جزء من الشخصية لا مجرد تفصيل بصري</h2>
-          <p>
-            حضور القهوة في التصميم جاء بوصفها علامة على مزاج الكتابة: هدوء، تركيز، طول صحبة مع الكتب والأفكار،
-            لا بوصفها عنصرًا زخرفيًا زائدًا. لهذا جاءت اللمسة اللونية بنية دافئة ومقيدة داخل نظام بصري منضبط.
-          </p>
-          <div class="coffee-pills" aria-label="سمات الأسلوب">
-            <span>عربي عصري</span>
-            <span>تحريري بسيط</span>
-            <span>أكاديمي هادئ</span>
-            <span>دفء القهوة</span>
-            <span>قابل للتوسعة</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-box">
-      <p>نموذج أولي لواجهة مدونة شخصية عربية قابلة للتطوير والنشر.</p>
-      <p>الاسم والعناوين والأقسام قابلة للتعديل داخل الملف مباشرة.</p>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      // نظام تبديل الوضع الليلي والنهاري
-      const root = document.documentElement;
-      const btn = document.querySelector('[data-theme-toggle]');
-      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      root.setAttribute('data-theme', theme);
-      const renderIcon = () => {
-        btn.innerHTML = theme === 'dark'
-          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
-          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
-      };
-      renderIcon();
-      btn.addEventListener('click', () => {
-        theme = theme === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', theme);
-        renderIcon();
-      });
-
-      // نظام التحرير من داخل الموقع
-      let editMode = false;
-      const editStyle = document.createElement('style');
-      editStyle.textContent = `
-        [contenteditable="true"] {
-          outline: 2px dashed var(--color-primary);
-          outline-offset: 2px;
-          border-radius: 4px;
-        }
-        .edit-btn { margin-top: 20px; display: inline-flex; gap: 10px; }
-        .edit-btn button { padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 12px; border: 1px solid var(--color-border); }
-        .edit-btn .save-btn { background: var(--color-primary); color: white; border-color: var(--color-primary); }
-        .edit-btn .cancel-btn { background: var(--color-surface); }
-        .add-card-btn { margin-top: 10px; padding: 8px 16px; background: var(--color-primary); color: white; border: 0; border-radius: 6px; cursor: pointer; }
-        .delete-btn { position: absolute; top: 10px; right: 10px; background: #ff6b6b; color: white; border: 0; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; display: none; }
-        .topic-card { position: relative; }
-        [data-edit-mode="true"] .delete-btn { display: block; }
-      `;
-      document.head.appendChild(editStyle);
-
-      const createEditBar = () => {
-        const bar = document.createElement('div');
-        bar.className = 'edit-btn';
-        bar.innerHTML = `
-          <button class="save-btn" id="save-edit">💾 حفظ التغييرات</button>
-          <button class="cancel-btn" id="cancel-edit">✕ إلغاء</button>
-        `;
-        return bar;
-      };
-
-      const toggleEditMode = () => {
-        editMode = !editMode;
-        document.documentElement.setAttribute('data-edit-mode', editMode);
-        
-        const header = document.querySelector('header');
-        let editBar = header.querySelector('.edit-btn');
-        
-        if (editMode) {
-          if (!editBar) {
-            editBar = createEditBar();
-            header.appendChild(editBar);
-          }
-          
-          // فعّل التحرير للعناوين والنصوص
-          document.querySelectorAll('h1, h2, h3, p:not(.eyebrow), .topic-card h3, .topic-card p').forEach(el => {
-            if (!el.closest('footer')) {
-              el.contentEditable = true;
-            }
-          });
-
-          // أضف أزرار الحذف للبطاقات
-          document.querySelectorAll('.topic-card').forEach((card, idx) => {
-            if (!card.querySelector('.delete-btn')) {
-              const btn = document.createElement('button');
-              btn.className = 'delete-btn';
-              btn.textContent = '🗑️ حذف';
-              btn.onclick = () => card.remove();
-              card.appendChild(btn);
-            }
-          });
-
-          // أضف زر إضافة بطاقة جديدة
-          const topicsGrid = document.querySelector('.topics');
-          if (topicsGrid && !topicsGrid.nextElementSibling?.classList.contains('add-card-btn')) {
-            const addBtn = document.createElement('button');
-            addBtn.className = 'add-card-btn';
-            addBtn.textContent = '➕ إضافة بطاقة جديدة';
-            addBtn.onclick = () => addNewTopic();
-            topicsGrid.parentElement.insertBefore(addBtn, topicsGrid.nextElementSibling);
-          }
-        } else {
-          // عطّل التحرير
-          document.querySelectorAll('[contenteditable="true"]').forEach(el => {
-            el.contentEditable = false;
-          });
-          document.querySelectorAll('.delete-btn').forEach(btn => btn.remove());
-          if (editBar) editBar.remove();
-        }
-      };
-
-      const addNewTopic = () => {
-        const newCard = document.createElement('article');
-        newCard.className = 'topic-card';
-        newCard.innerHTML = `
-          <div class="topic-icon">⭐</div>
-          <h3 contenteditable="true">عنوان جديد</h3>
-          <p contenteditable="true">اكتب الوصف هنا...</p>
-          <button class="delete-btn" style="display: block;">🗑️ حذف</button>
-        `;
-        newCard.querySelector('.delete-btn').onclick = () => newCard.remove();
-        document.querySelector('.topics').appendChild(newCard);
-      };
-
-      const saveChanges = () => {
-        const html = document.documentElement.outerHTML;
-        localStorage.setItem('blog-content', html);
-        alert('✅ تم حفظ التغييرات بنجاح!\n\nملاحظة: التغييرات محفوظة محلياً فقط. لحفظها دائماً، قم بنسخ الكود من متصفح المطورين.');
-        toggleEditMode();
-      };
-
-      const cancelEdit = () => {
-        if (confirm('هل تريد إلغاء جميع التعديلات؟')) {
-          location.reload();
-        }
-      };
-
-      // استعد المحتوى المحفوظ سابقاً
-      if (localStorage.getItem('blog-content')) {
-        // يمكن تفعيل هذا إذا كنت تريد استعادة التغييرات السابقة
-        // document.documentElement.outerHTML = localStorage.getItem('blog-content');
-      }
-
-      // أضف زر التحرير إلى العنوان
-      const header = document.querySelector('header');
-      const editToggleBtn = document.createElement('button');
-      editToggleBtn.style.cssText = 'min-width: 44px; min-height: 44px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--color-border); background: var(--color-surface); cursor: pointer; margin-left: 10px;';
-      editToggleBtn.title = 'تفعيل وضع التحرير (Ctrl+E)';
-      editToggleBtn.innerHTML = '✏️';
-      editToggleBtn.onclick = toggleEditMode;
-      
-      header.querySelector('.nav-actions').insertBefore(editToggleBtn, header.querySelector('.theme-toggle'));
-
-      // اختصار لوحة المفاتيح
-      document.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'e') {
-          e.preventDefault();
-          toggleEditMode();
-        }
-      });
-
-      // ربط أزرار الحفظ والإلغاء
-      document.addEventListener('click', (e) => {
-        if (e.target.id === 'save-edit') saveChanges();
-        if (e.target.id === 'cancel-edit') cancelEdit();
-      });
-    }());
-  </script>
-</body>
+      <section class="newsletter" id="قهوة"><div><p class="eyebrow">فِنْجَانٌ وَرِسَالَة</p><h2>رفيق القهوة الأسبوعي</h2><p>رسالة هادئة كل أسبوع: فكرة تستحق التأمل، ومقال جديد، وترشيح من مكتبتي.</p></div><form class="subscribe-form"><label class="sr-only" for="email">بريدك الإلكتروني</label><input id="email" type="email" placeholder="بريدك الإلكتروني" required /><button class="button primary">اشترك <span>←</span></button><p class="form-message" aria-live="polite"></p></form></section>
+    </main>
+    <footer><a class="brand" href="#الرئيسية"><span>رِواق</span><i></i></a><p>كُتب بمحبة، وفنجان قهوة.</p><div><a href="#">X</a><a href="#">in</a><a href="#">◎</a></div><small>© <span id="year"></span> محمد. جميع الحقوق محفوظة.</small></footer>
+    <script src="script.js"></script>
+  </body>
 </html>
