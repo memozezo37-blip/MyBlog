@@ -1,0 +1,146 @@
+/* المتغيرات الأساسية (الوضع الفاتح - ألوان القهوة والورق العتيق) */
+:root {
+    --bg-color: #f8f5f0; /* لون ورق قديم */
+    --text-color: #3b2818; /* لون قهوة داكن */
+    --card-bg: #ffffff;
+    --accent-color: #8c6b5d; /* لون قهوة بالحليب */
+    --border-color: #d7ccc4;
+    --font-heading: 'Amiri', serif;
+    --font-body: 'Tajawal', sans-serif;
+    --transition: 0.3s ease-in-out;
+}
+
+/* الوضع الداكن */
+body.dark-mode {
+    --bg-color: #1a1614; /* بني محروق/أسود */
+    --text-color: #e8ded3;
+    --card-bg: #2a2421;
+    --accent-color: #bfa596;
+    --border-color: #3f3530;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* الترويسة */
+.main-header {
+    background-color: var(--card-bg);
+    border-bottom: 2px solid var(--accent-color);
+    padding: 1rem 0;
+    transition: var(--transition);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.theme-btn {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    border-color: var(--accent-color);
+}
+
+/* القسم الترحيبي */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* شبكة الأقسام */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--accent-color);
+}
+
+/* التذييل */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
