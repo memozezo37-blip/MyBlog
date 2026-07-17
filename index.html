@@ -1,550 +1,96 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بين السطر والفنجان</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Markazi+Text:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#FAF6F0;
-    --bg-alt:#F1EAE0;
-    --card:#FFFDF9;
-    --ink:#241C16;
-    --ink-soft:#6B5D4F;
-    --coffee:#7B5233;
-    --coffee-dark:#4A3220;
-    --teal:#234C43;
-    --gold:#BA8B3D;
-    --line:#E1D5C4;
-    --shadow: 0 1px 2px rgba(36,28,22,.04), 0 8px 24px -12px rgba(36,28,22,.15);
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Markazi Text', serif;
-    font-size:19px;
-    line-height:1.8;
-    -webkit-font-smoothing:antialiased;
-  }
-  .disp{font-family:'El Messiri', sans-serif;}
-  .util{font-family:'IBM Plex Sans Arabic', sans-serif;}
-  a{color:inherit;text-decoration:none;}
-  button{font-family:inherit;cursor:pointer;}
-
-  /* texture */
-  body::before{
-    content:"";
-    position:fixed; inset:0; z-index:0; pointer-events:none;
-    background-image: radial-gradient(circle at 1px 1px, rgba(123,82,51,.055) 1px, transparent 0);
-    background-size: 22px 22px;
-  }
-
-  #app{position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column;}
-
-  /* ===== HEADER ===== */
-  header{
-    position:sticky; top:0; z-index:40;
-    background:rgba(250,246,240,.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .header-inner{
-    max-width:1040px; margin:0 auto; padding:14px 24px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-  }
-  .brand{display:flex; align-items:center; gap:12px; cursor:pointer;}
-  .mark{width:42px;height:42px;flex-shrink:0;}
-  .brand-text .name{font-family:'El Messiri',sans-serif; font-weight:700; font-size:19px; color:var(--coffee-dark); line-height:1.1;}
-  .brand-text .tag{font-family:'IBM Plex Sans Arabic',sans-serif; font-size:12px; color:var(--ink-soft); letter-spacing:.3px;}
-  .admin-btn{
-    background:none;border:1px solid var(--line); border-radius:999px;
-    width:38px;height:38px; display:flex;align-items:center;justify-content:center;
-    color:var(--ink-soft); transition:.15s;
-  }
-  .admin-btn:hover{border-color:var(--coffee); color:var(--coffee); background:var(--bg-alt);}
-
-  /* ===== HERO ===== */
-  .hero{max-width:1040px; margin:0 auto; padding:56px 24px 28px; position:relative;}
-  .hero-ring{position:absolute; top:-10px; left:0; opacity:.5; z-index:0; pointer-events:none;}
-  .hero h1{
-    font-family:'El Messiri',sans-serif; font-weight:700;
-    font-size:clamp(32px,5vw,52px); line-height:1.25; margin:0 0 14px; color:var(--ink);
-    position:relative; z-index:1;
-  }
-  .hero h1 span{color:var(--coffee);}
-  .hero p.bio{max-width:620px; color:var(--ink-soft); font-size:20px; margin:0 0 6px; position:relative; z-index:1;}
-  .hero p.line{
-    font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13px; color:var(--gold);
-    letter-spacing:.4px; margin-top:14px;
-  }
-
-  /* ===== FILTERS ===== */
-  .filters{max-width:1040px;margin:0 auto; padding:6px 24px 30px; display:flex; flex-wrap:wrap; gap:8px;}
-  .chip{
-    font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; padding:7px 16px;
-    border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink-soft);
-    display:flex; align-items:center; gap:7px; transition:.15s;
-  }
-  .chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-  .chip.active{background:var(--ink); color:#FAF6F0; border-color:var(--ink);}
-  .chip:not(.active):hover{border-color:var(--coffee); color:var(--ink);}
-
-  /* ===== GRID ===== */
-  main{flex:1; max-width:1040px; margin:0 auto; padding:0 24px 80px; width:100%;}
-  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px;}
-  .card{
-    background:var(--card); border:1px solid var(--line); border-radius:14px;
-    padding:22px 22px 18px; position:relative; box-shadow:var(--shadow);
-    display:flex; flex-direction:column; transition:transform .15s, box-shadow .15s;
-    cursor:pointer;
-  }
-  .card:hover{transform:translateY(-3px); box-shadow:0 4px 4px rgba(36,28,22,.04), 0 16px 32px -14px rgba(36,28,22,.22);}
-  .card .stamp{position:absolute; top:-12px; left:18px; width:46px; height:46px;}
-  .card .cat-label{font-family:'IBM Plex Sans Arabic',sans-serif; font-size:12px; font-weight:500; margin-bottom:10px;}
-  .card h3{font-family:'El Messiri',sans-serif; font-size:22px; font-weight:600; margin:0 0 10px; line-height:1.4; color:var(--ink);}
-  .card .excerpt{color:var(--ink-soft); font-size:17px; line-height:1.7; margin:0 0 16px; flex:1;}
-  .card .meta{font-family:'IBM Plex Sans Arabic',sans-serif; font-size:12px; color:#A6957F; display:flex; justify-content:space-between; border-top:1px dashed var(--line); padding-top:12px;}
-  .card .edit-row{display:flex; gap:8px; margin-top:12px;}
-  .card .edit-row button{
-    font-family:'IBM Plex Sans Arabic',sans-serif; font-size:12px; border:1px solid var(--line);
-    background:var(--bg-alt); border-radius:8px; padding:5px 10px; color:var(--ink-soft);
-  }
-  .card .edit-row button:hover{color:var(--coffee); border-color:var(--coffee);}
-
-  .empty{
-    text-align:center; padding:70px 20px; color:var(--ink-soft);
-  }
-  .empty p{margin:0 0 18px; font-size:20px;}
-  .empty button{
-    font-family:'IBM Plex Sans Arabic',sans-serif; background:var(--coffee); color:#fff;
-    border:none; border-radius:999px; padding:11px 24px; font-size:14px;
-  }
-
-  /* ===== ARTICLE VIEW ===== */
-  .article-wrap{max-width:720px; margin:0 auto; padding:40px 24px 90px;}
-  .back-btn{
-    font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; color:var(--ink-soft);
-    display:inline-flex; align-items:center; gap:6px; margin-bottom:26px; border:none; background:none; padding:0;
-  }
-  .back-btn:hover{color:var(--coffee);}
-  .art-cat{font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13px; font-weight:500; margin-bottom:14px; display:inline-block;}
-  .article-wrap h1{font-family:'El Messiri',sans-serif; font-size:clamp(28px,4vw,40px); line-height:1.3; margin:0 0 14px;}
-  .art-meta{font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13px; color:#A6957F; margin-bottom:34px; border-bottom:1px solid var(--line); padding-bottom:24px;}
-  .art-body{font-size:21px; line-height:1.95; color:#33281F;}
-  .art-body p{margin:0 0 24px;}
-
-  /* ===== FOOTER ===== */
-  footer{
-    border-top:1px solid var(--line); padding:26px 24px; text-align:center;
-    font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13px; color:var(--ink-soft);
-  }
-
-  /* ===== MODALS ===== */
-  .overlay{
-    position:fixed; inset:0; background:rgba(36,28,22,.5); z-index:100;
-    display:flex; align-items:center; justify-content:center; padding:20px;
-  }
-  .modal{
-    background:var(--bg); border-radius:16px; width:100%; max-width:560px;
-    max-height:88vh; overflow-y:auto; padding:28px 26px; box-shadow:0 20px 60px rgba(0,0,0,.25);
-  }
-  .modal h2{font-family:'El Messiri',sans-serif; font-size:22px; margin:0 0 20px;}
-  .field{margin-bottom:16px;}
-  .field label{
-    display:block; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13px;
-    color:var(--ink-soft); margin-bottom:6px;
-  }
-  .field input, .field select, .field textarea{
-    width:100%; border:1px solid var(--line); border-radius:9px; padding:10px 12px;
-    font-family:'Markazi Text',serif; font-size:18px; background:var(--card); color:var(--ink);
-  }
-  .field textarea{min-height:220px; resize:vertical; line-height:1.7;}
-  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--coffee); outline-offset:1px;}
-  .modal-actions{display:flex; gap:10px; margin-top:8px; justify-content:flex-end; flex-wrap:wrap;}
-  .btn{
-    font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; border-radius:999px;
-    padding:10px 22px; border:1px solid var(--line); background:var(--card); color:var(--ink-soft);
-  }
-  .btn.primary{background:var(--coffee); border-color:var(--coffee); color:#fff;}
-  .btn.danger{background:#fff; border-color:#B5493A; color:#B5493A;}
-  .btn:hover{filter:brightness(1.04);}
-  .hint{font-family:'IBM Plex Sans Arabic',sans-serif; font-size:12px; color:#A6957F; margin-top:14px; line-height:1.7;}
-
-  .admin-list-item{
-    display:flex; align-items:center; justify-content:space-between; gap:10px;
-    padding:10px 4px; border-bottom:1px solid var(--line); font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px;
-  }
-  .admin-list-item .t{flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-  .admin-list-item .actions{display:flex; gap:6px;}
-  .admin-list-item .actions button{font-size:12px; padding:5px 10px; border-radius:7px; border:1px solid var(--line); background:var(--bg-alt);}
-
-  @media (max-width:640px){
-    .hero{padding:38px 20px 20px;}
-    .article-wrap{padding:28px 18px 70px;}
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>مدونة أحمد – قهوة وعلوم شرعية وإنسانية</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="مدونة تجمع بين حب القهوة والفقه الحنبلي وأصول الفقه ومقاصد الشريعة وعلم الاجتماع وعلم النفس والاقتصاد الإسلامي والصيدلة والطب.">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app"></div>
-
-<script>
-const CATEGORIES = [
-  {id:'fiqh',     name:'فقه حنبلي',        color:'#7B5233'},
-  {id:'usul',     name:'أصول ومقاصد',      color:'#234C43'},
-  {id:'iqtisad',  name:'اقتصاد إسلامي',    color:'#BA8B3D'},
-  {id:'tibb',     name:'طب وصيدلة',        color:'#A24936'},
-  {id:'nafs',     name:'تأملات نفسية',     color:'#3C5A73'},
-  {id:'tadabbur', name:'تدبر قرآني',       color:'#5B6B2E'},
-];
-const MONTHS = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
-
-const SEED_POSTS = [
-  {
-    id:'seed1', category:'usul',
-    title:'الثمنية عند ابن تيمية وابن القيم: لماذا حُرّم الربا أصلاً؟',
-    excerpt:'قراءة في مفهوم الثمنية كأساس لتفسير علة تحريم الربا في الأثمان، وكيف وظّف ابن القيّم هذا المفهوم لحفظ وظيفة المال لا لذاته.',
-    content:`أكثر ما يُساء فهمه في باب الربا أن الطلبة يحفظون العلة اللفظية "الطعم والقدر" أو "الثمنية" دون أن يسألوا: ولماذا كانت هذه هي العلة أصلاً؟ الجواب عند ابن تيمية وابن القيم ليس تعبديًا محضًا، بل مبني على وظيفة النقد في حياة الناس.
-
-الثمنية عندهما ليست صفة في العين، بل وظيفة اجتماعية: النقد مقياس للقيم ووسيط للتبادل، لا سلعة تُطلب لذاتها. حين يتحول النقد نفسه إلى سلعة تُباع وتُشترى بربح مؤجل، تنهار وظيفته كمقياس ثابت، ويتحول الاقتصاد من تبادل منافع حقيقية إلى مراكمة على الورق.
-
-هنا يظهر ارتباط الربا بمقصد حفظ المال على مستوى الأمة لا الفرد فقط: حفظ المال عند الحنابلة ليس فقط منع السرقة، بل حماية وظيفة الأداة التي تقوم عليها كل المعاملات. حين تفسد الأداة، يفسد كل ما يُبنى عليها.
-
-هذا يفتح سؤالًا معاصرًا لم يُستوفَ بعد: هل تنطبق علة الثمنية على العملات الرقمية بالمعنى نفسه، أم أن غياب سلطة الإصدار المركزية يغيّر الوصف الفقهي للمناط؟ هذه مسألة تحتاج تأصيلًا مستقلاً، لا قياسًا مستعجلاً.`,
-    date:'2026-06-02'
-  },
-  {
-    id:'seed2', category:'nafs',
-    title:'الصيدلي الذي أصبح فقيهًا: كيف شكّل التدريب العلمي فهمي للفقه',
-    excerpt:'لم أنتقل من الصيدلة إلى الفقه، بل اكتشفت أن العقلين يسألان السؤال نفسه: ما الذي يضبط الجرعة، وما الذي يضبط الحكم؟',
-    content:`حين تدرس الصيدلة تتعلم أن الدواء والسم قد يكونان المادة نفسها، وأن الفارق كله في الجرعة والسياق. لم أفهم عمق هذا الدرس إلا حين انتقلت لدراسة الفقه وأصوله بجدية.
-
-الحكم الفقهي، كالجرعة الدوائية، لا يُفهم بمعزل عن السياق الذي طُبّق فيه. من يحفظ نص الفتوى دون أن يفهم منشأها أشبه بمن يحفظ اسم الدواء دون أن يفهم آلية عمله؛ سيخطئ في أول حالة تخرج عن النمط المعتاد.
-
-الفرق الجوهري أن الصيدلة علم تجريبي يقبل إعادة الاختبار، بينما الفقه علم نصي-استدلالي يقيّد الاجتهاد بضوابط الدليل. لكن العقلية المنهجية واحدة: لا تُصدر حكمًا (دوائيًا أو فقهيًا) قبل أن تفهم العلة، ولا تُعمّم استثناءً على قاعدة.
-
-هذا ما يجعلني أزعج بعض طلابي حين يطلبون "القاعدة النهائية" في مسألة معقدة. القاعدة موجودة، لكنها لا تُغني عن فهم متى تُستثنى.`,
-    date:'2026-05-18'
-  },
-  {
-    id:'seed3', category:'fiqh',
-    title:'بين اليقين الفلكي والاحتمال الشرعي: قراءة في هلال شوال',
-    excerpt:'التفريق بين تحقق الاقتران الفلكي وإمكان الرؤية البصرية هو مفتاح فهم منهج ابن تيمية في مسائل الأهلة، وأكثر نقطة يخطئ فيها المعلّقون.',
-    content:`كل عام تتجدد المعركة نفسها حول هلال شوال، وكل عام يخلط أغلب المتحدثين بين مسألتين مختلفتين تمامًا: تحقق الاقتران الفلكي (وهو أمر حسابي قطعي)، وإمكان رؤية الهلال بالعين (وهو أمر احتمالي يتأثر بعوامل جوية وموقع جغرافي).
-
-منهج ابن تيمية في هذا الباب دقيق: هو لا يرفض الحساب الفلكي كعلم، بل يرفض جعله بديلاً شرعيًا عن الرؤية المنصوص عليها. الفرق بين الرفض المعرفي والرفض الشرعي هو ما يغيب عن كثير من المعلقين المعاصرين، سواء المتحمسين للفلك أو الرافضين له بإطلاق.
-
-من الأخطاء الشائعة في الكتابة الشعبية حول هذا الموضوع الخلط بين ظواهر فلكية مختلفة تمامًا في دوريتها وشروط حدوثها؛ وهذا خطأ يستحق تدقيقًا صارمًا قبل النشر، لأن أي خطأ علمي في مقال شرعي يهدم مصداقية الحجة الفقهية كلها بصرف النظر عن صحتها.`,
-    date:'2026-04-11'
-  },
-];
-
-let state = {
-  posts: [],
-  filter: 'all',
-  view: 'home',
-  currentId: null,
-  adminAuthed: false,
-  loading: true,
-};
-
-function catInfo(id){ return CATEGORIES.find(c=>c.id===id) || CATEGORIES[0]; }
-
-function ringSVG(color, size){
-  return `<svg viewBox="0 0 100 100" width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="50" cy="52" rx="42" ry="38" fill="none" stroke="${color}" stroke-width="5" opacity="0.55" transform="rotate(-6 50 52)"/>
-    <ellipse cx="53" cy="49" rx="33" ry="30" fill="none" stroke="${color}" stroke-width="3.5" opacity="0.8" transform="rotate(9 53 49)"/>
-  </svg>`;
-}
-
-function formatDate(iso){
-  const d = new Date(iso);
-  return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
-}
-function readTime(text){
-  const words = text.trim().split(/\s+/).length;
-  return Math.max(1, Math.round(words/180));
-}
-function esc(s){
-  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-function toParagraphs(text){
-  return text.split(/\n\s*\n/).map(p=>`<p>${esc(p.trim()).replace(/\n/g,'<br>')}</p>`).join('');
-}
-
-async function loadPosts(){
-  try{
-    const res = await window.storage.get('posts', true);
-    state.posts = res && res.value ? JSON.parse(res.value) : SEED_POSTS;
-    if(!res){
-      await window.storage.set('posts', JSON.stringify(SEED_POSTS), true);
-      state.posts = SEED_POSTS;
-    }
-  }catch(e){
-    // key doesn't exist yet -> seed it
-    try{ await window.storage.set('posts', JSON.stringify(SEED_POSTS), true); }catch(e2){}
-    state.posts = SEED_POSTS;
-  }
-  state.loading = false;
-  render();
-}
-async function savePosts(){
-  try{
-    await window.storage.set('posts', JSON.stringify(state.posts), true);
-  }catch(e){
-    alert('تعذّر حفظ التعديلات، حاول مرة أخرى.');
-  }
-}
-
-function goHome(){ state.view='home'; state.currentId=null; window.scrollTo(0,0); render(); }
-function openArticle(id){ state.view='article'; state.currentId=id; window.scrollTo(0,0); render(); }
-function setFilter(id){ state.filter=id; render(); }
-
-function requestAdmin(){
-  if(state.adminAuthed){ openAdminPanel(); return; }
-  renderPasscodeModal();
-}
-async function renderPasscodeModal(){
-  let stored;
-  try{ const r = await window.storage.get('admin_passcode', true); stored = r ? r.value : null; }
-  catch(e){ stored = null; }
-  const isFirstTime = !stored;
-  const wrap = document.createElement('div');
-  wrap.className = 'overlay';
-  wrap.innerHTML = `
-    <div class="modal" style="max-width:400px;">
-      <h2>${isFirstTime ? 'تعيين كلمة مرور للتحكم' : 'أدخل كلمة المرور'}</h2>
-      <div class="field">
-        <label>${isFirstTime ? 'اختر كلمة مرور تحفظها جيدًا' : 'كلمة المرور'}</label>
-        <input type="password" id="pw-input" autofocus>
-      </div>
-      <p class="hint">${isFirstTime ? 'هذه الكلمة تُخزَّن كما هي داخل ذاكرة العمل الخاصة بالمدونة، وهي حماية بسيطة لمنع التعديل العشوائي — وليست تشفيرًا حقيقيًا.' : ''}</p>
-      <div class="modal-actions">
-        <button class="btn" id="pw-cancel">إلغاء</button>
-        <button class="btn primary" id="pw-submit">${isFirstTime?'تعيين ودخول':'دخول'}</button>
-      </div>
-    </div>`;
-  document.body.appendChild(wrap);
-  const input = wrap.querySelector('#pw-input');
-  input.focus();
-  wrap.querySelector('#pw-cancel').onclick = ()=> wrap.remove();
-  wrap.addEventListener('click', e=>{ if(e.target===wrap) wrap.remove(); });
-  const submit = async ()=>{
-    const val = input.value.trim();
-    if(!val) return;
-    if(isFirstTime){
-      try{ await window.storage.set('admin_passcode', val, true); }catch(e){}
-      state.adminAuthed = true;
-      wrap.remove();
-      openAdminPanel();
-    }else{
-      if(val === stored){
-        state.adminAuthed = true;
-        wrap.remove();
-        openAdminPanel();
-      }else{
-        input.style.borderColor = '#B5493A';
-        input.value='';
-        input.placeholder='كلمة مرور غير صحيحة';
-      }
-    }
-  };
-  wrap.querySelector('#pw-submit').onclick = submit;
-  input.addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
-}
-
-function openAdminPanel(){
-  const wrap = document.createElement('div');
-  wrap.className = 'overlay';
-  wrap.id = 'admin-overlay';
-  wrap.innerHTML = `
-    <div class="modal" style="max-width:640px;">
-      <h2>لوحة التحكم — المقالات</h2>
-      <div class="modal-actions" style="justify-content:flex-start; margin-bottom:18px;">
-        <button class="btn primary" id="new-post-btn">+ مقال جديد</button>
-      </div>
-      <div id="admin-list"></div>
-      <div class="modal-actions" style="margin-top:20px;">
-        <button class="btn" id="admin-close">إغلاق</button>
-      </div>
-    </div>`;
-  document.body.appendChild(wrap);
-  renderAdminList();
-  wrap.querySelector('#new-post-btn').onclick = ()=> openEditor(null);
-  wrap.querySelector('#admin-close').onclick = ()=> wrap.remove();
-  wrap.addEventListener('click', e=>{ if(e.target===wrap) wrap.remove(); });
-}
-function renderAdminList(){
-  const list = document.getElementById('admin-list');
-  if(!list) return;
-  if(state.posts.length===0){
-    list.innerHTML = `<p class="hint">لا توجد مقالات بعد.</p>`;
-    return;
-  }
-  list.innerHTML = [...state.posts].sort((a,b)=> new Date(b.date)-new Date(a.date)).map(p=>`
-    <div class="admin-list-item">
-      <span class="t">${esc(p.title)} <span style="color:${catInfo(p.category).color}">· ${catInfo(p.category).name}</span></span>
-      <span class="actions">
-        <button onclick="openEditor('${p.id}')">تعديل</button>
-        <button onclick="confirmDelete('${p.id}')" style="color:#B5493A;">حذف</button>
-      </span>
-    </div>
-  `).join('');
-}
-function confirmDelete(id){
-  const post = state.posts.find(p=>p.id===id);
-  if(!post) return;
-  if(confirm(`هل تريد حذف مقال "${post.title}"؟ لا يمكن التراجع.`)){
-    state.posts = state.posts.filter(p=>p.id!==id);
-    savePosts();
-    renderAdminList();
-    if(state.view==='article' && state.currentId===id) goHome(); else render();
-  }
-}
-
-function openEditor(id){
-  const editing = id ? state.posts.find(p=>p.id===id) : null;
-  const wrap = document.createElement('div');
-  wrap.className = 'overlay';
-  wrap.style.zIndex = 110;
-  wrap.innerHTML = `
-    <div class="modal">
-      <h2>${editing ? 'تعديل المقال' : 'مقال جديد'}</h2>
-      <div class="field">
-        <label>العنوان</label>
-        <input id="f-title" value="${editing ? esc(editing.title) : ''}">
-      </div>
-      <div class="field">
-        <label>القسم</label>
-        <select id="f-cat">
-          ${CATEGORIES.map(c=>`<option value="${c.id}" ${editing && editing.category===c.id ? 'selected':''}>${c.name}</option>`).join('')}
-        </select>
-      </div>
-      <div class="field">
-        <label>نبذة مختصرة (تُترك فارغة لتُستخرج تلقائيًا من بداية النص)</label>
-        <input id="f-excerpt" value="${editing ? esc(editing.excerpt) : ''}">
-      </div>
-      <div class="field">
-        <label>نص المقال — افصل بين الفقرات بسطر فارغ</label>
-        <textarea id="f-content">${editing ? esc(editing.content) : ''}</textarea>
-      </div>
-      <div class="modal-actions">
-        <button class="btn" id="ed-cancel">إلغاء</button>
-        <button class="btn primary" id="ed-save">${editing ? 'حفظ التعديلات' : 'نشر المقال'}</button>
-      </div>
-    </div>`;
-  document.body.appendChild(wrap);
-  wrap.querySelector('#ed-cancel').onclick = ()=> wrap.remove();
-  wrap.addEventListener('click', e=>{ if(e.target===wrap) wrap.remove(); });
-  wrap.querySelector('#ed-save').onclick = async ()=>{
-    const title = wrap.querySelector('#f-title').value.trim();
-    const category = wrap.querySelector('#f-cat').value;
-    const content = wrap.querySelector('#f-content').value.trim();
-    let excerpt = wrap.querySelector('#f-excerpt').value.trim();
-    if(!title || !content){ alert('العنوان والنص مطلوبان.'); return; }
-    if(!excerpt){ excerpt = content.split(/\n\s*\n/)[0].slice(0,160).trim() + '…'; }
-    if(editing){
-      Object.assign(editing, {title, category, excerpt, content});
-    }else{
-      state.posts.push({
-        id: 'p'+Date.now(),
-        title, category, excerpt, content,
-        date: new Date().toISOString().slice(0,10)
-      });
-    }
-    await savePosts();
-    wrap.remove();
-    const adminOverlay = document.getElementById('admin-overlay');
-    if(adminOverlay) renderAdminList();
-    render();
-  };
-}
-
-function render(){
-  const app = document.getElementById('app');
-  if(state.loading){
-    app.innerHTML = `<div style="padding:120px 20px; text-align:center; font-family:'IBM Plex Sans Arabic',sans-serif; color:var(--ink-soft);">جارٍ تحميل المقالات…</div>`;
-    return;
-  }
-  const header = `
-    <header>
-      <div class="header-inner">
-        <div class="brand" onclick="goHome()">
-          ${ringSVG('#7B5233', 42)}
-          <div class="brand-text">
-            <div class="name">أحمد زين العابدين</div>
-            <div class="tag">فقه حنبلي · أصول ومقاصد · اقتصاد إسلامي</div>
-          </div>
+    <header class="site-header">
+        <div class="logo-area">
+            <div class="coffee-icon">☕</div>
+            <div class="brand">
+                <h1>مدونة أحمد</h1>
+                <p>قهوة هادئة… وأفكار عميقة</p>
+            </div>
         </div>
-        <button class="admin-btn" title="لوحة التحكم" onclick="requestAdmin()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.14.31.44.51.78.51H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-        </button>
-      </div>
-    </header>`;
+        <nav class="main-nav">
+            <a href="#about">عن المدونة</a>
+            <a href="#topics">التخصصات</a>
+            <a href="#blog">المقالات</a>
+        </nav>
+    </header>
 
-  const footer = `
-    <footer>هذا كله يُكتب على فنجان قهوة لا يبرد · بين السطر والفنجان © ${new Date().getFullYear()}</footer>`;
-
-  if(state.view==='article'){
-    const post = state.posts.find(p=>p.id===state.currentId);
-    if(!post){ state.view='home'; render(); return; }
-    const cat = catInfo(post.category);
-    app.innerHTML = header + `
-      <main>
-        <div class="article-wrap">
-          <button class="back-btn" onclick="goHome()">→ الرجوع إلى كل المقالات</button>
-          <span class="art-cat" style="color:${cat.color};">${cat.name}</span>
-          <h1>${esc(post.title)}</h1>
-          <div class="art-meta">${formatDate(post.date)} · قراءة ${readTime(post.content)} دقائق</div>
-          <div class="art-body">${toParagraphs(post.content)}</div>
+    <section class="hero">
+        <div class="hero-text">
+            <h2>حكاياتي مع القهوة والعلوم</h2>
+            <p>
+                هنا أكتب وأنا أحتسي قهوتي، بين صفحات الفقه الحنبلي وأصول الفقه ومقاصد الشريعة،
+                وبين تأملات علم الاجتماع وعلم النفس، ونظرات في الاقتصاد الإسلامي، ولمحات من عالم الصيدلة والطب.
+            </p>
+            <a href="#blog" class="hero-button">ابدأ القراءة</a>
         </div>
-      </main>` + footer;
-    return;
-  }
+        <div class="hero-visual">
+            <div class="coffee-card">
+                <h3>فنجان اليوم</h3>
+                <p>قهوة سوداء… تشبه وضوح الفكرة حين تستقر في القلب والعقل.</p>
+            </div>
+        </div>
+    </section>
 
-  const filtered = state.filter==='all' ? state.posts : state.posts.filter(p=>p.category===state.filter);
-  const sorted = [...filtered].sort((a,b)=> new Date(b.date)-new Date(a.date));
+    <section id="about" class="section">
+        <h2>عن المدونة</h2>
+        <p>
+            هذه المدونة مساحة شخصية تجمع بين حب القهوة من جهة، وحب العلم من جهة أخرى.
+            أحاول أن أكتب بلغة بسيطة، عميقة، قريبة من الواقع، تربط بين النصوص الشرعية
+            والعلوم الإنسانية والطبية، وتبحث عن المعنى والمقصد في كل فكرة.
+        </p>
+    </section>
 
-  const chips = `<div class="filters">
-    <button class="chip ${state.filter==='all'?'active':''}" onclick="setFilter('all')">الكل</button>
-    ${CATEGORIES.map(c=>`
-      <button class="chip ${state.filter===c.id?'active':''}" onclick="setFilter('${c.id}')">
-        <span class="dot" style="background:${c.color}"></span>${c.name}
-      </button>`).join('')}
-  </div>`;
+    <section id="topics" class="section topics-grid">
+        <h2>التخصصات التي أكتب عنها</h2>
+        <div class="topic-card">
+            <h3>الفقه الحنبلي</h3>
+            <p>قراءة تطبيقية لمتون الفقه الحنبلي، مع ربطها بواقع الناس وأسئلتهم اليومية.</p>
+        </div>
+        <div class="topic-card">
+            <h3>أصول الفقه</h3>
+            <p>أدوات فهم النص واستنباط الأحكام، بلغة مبسطة تناسب طالب العلم المعاصر.</p>
+        </div>
+        <div class="topic-card">
+            <h3>مقاصد الشريعة</h3>
+            <p>رحلة في حفظ الدين والنفس والعقل والمال والنسل، وكيف تنعكس على الفتاوى والواقع.</p>
+        </div>
+        <div class="topic-card">
+            <h3>علم الاجتماع</h3>
+            <p>قراءة للمجتمع وسلوك الجماعات، وربطها بالخطاب الديني والواقع اليومي.</p>
+        </div>
+        <div class="topic-card">
+            <h3>علم النفس</h3>
+            <p>تأملات في النفس البشرية، بين النصوص الشرعية ونظريات علم النفس الحديث.</p>
+        </div>
+        <div class="topic-card">
+            <h3>الاقتصاد الإسلامي</h3>
+            <p>محاولة لتقديم معاملات مالية معاصرة منضبطة بالضوابط الشرعية وروح العدالة.</p>
+        </div>
+        <div class="topic-card">
+            <h3>الصيدلة والطب</h3>
+            <p>لمحات من عالم الدواء والطب، مع أسئلة أخلاقية وفقهية حول الممارسة الطبية.</p>
+        </div>
+    </section>
 
-  const gridHtml = sorted.length ? `<div class="grid">
-    ${sorted.map(p=>{
-      const cat = catInfo(p.category);
-      return `<div class="card" onclick="openArticle('${p.id}')">
-        <div class="stamp">${ringSVG(cat.color, 46)}</div>
-        <div class="cat-label" style="color:${cat.color}">${cat.name}</div>
-        <h3>${esc(p.title)}</h3>
-        <p class="excerpt">${esc(p.excerpt)}</p>
-        <div class="meta"><span>${formatDate(p.date)}</span><span>قراءة ${readTime(p.content)} د</span></div>
-      </div>`;
-    }).join('')}
-  </div>` : `<div class="empty">
-      <p>لا توجد مقالات بعد في هذا القسم.</p>
-      <button onclick="requestAdmin()">أضف أول مقال</button>
-    </div>`;
+    <section id="blog" class="section">
+        <h2>أحدث المقالات</h2>
+        <p class="placeholder">
+            هنا ستظهر مقالاتك لاحقًا. يمكنك ربط هذه الصفحة بنظام تدوين أو إضافة المقالات يدويًا.
+        </p>
+    </section>
 
-  app.innerHTML = header + `
-    <div class="hero">
-      <div class="hero-ring">${ringSVG('#BA8B3D', 130)}</div>
-      <h1>بين <span>الدليل</span> والمقصد</h1>
-      <p class="bio">صيدلي بالتكوين، باحث في الفقه الحنبلي وأصوله، ومتخصص في الاقتصاد الإسلامي. أكتب هنا فيما يشغلني من مسائل الفقه والمقاصد والمال، وأحيانًا فيما لا يشغل أحدًا غيري.</p>
-      <p class="line">بين السطر والفنجان</p>
-    </div>
-    ${chips}
-    <main>${gridHtml}</main>` + footer;
-}
-
-loadPosts();
-</script>
+    <footer class="site-footer">
+        <p>مدونة أحمد – تُكتب على مهل، مع فنجان قهوة.</p>
+        <p class="footer-note">يمكنك متابعة تطوير هذه المدونة على GitHub.</p>
+    </footer>
 </body>
 </html>
