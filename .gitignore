@@ -1,0 +1,8 @@
+# نظام التشغيل والمحررات
+.DS_Store
+Thumbs.db
+.vscode/
+
+# ملفات البيئة المحلية
+.env
+.env.local
