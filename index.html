@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مدونة أحمد زين</title>
+  <meta name="description" content="مدونة شخصية تجمع بين الفقه الحنبلي وأصول الفقه ومقاصد الشريعة والاقتصاد الإسلامي وعلم النفس والاجتماع والصيدلة والطب بروح تراثية عصرية." />
+  <meta name="theme-color" content="#f6f1e8" />
+  <meta property="og:title" content="مدونة أحمد زين" />
+  <meta property="og:description" content="فقه حنبلي وأصول ومقاصد واقتصاد إسلامي وعلم نفس واجتماع وصيدلة وطب، في تصميم تراثي عصري هادئ." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.08rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.45rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+      --text-2xl: clamp(2rem, 1.5rem + 2vw, 3.2rem);
+      --text-hero: clamp(2.8rem, 1.5rem + 4vw, 5.2rem);
+
+      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+
+      --color-bg: #f6f1e8;
+      --color-surface: #fbf8f1;
+      --color-surface-2: #f1eadf;
+      --color-surface-offset: #e8dfd0;
+      --color-surface-accent: #efe5d2;
+      --color-border: rgba(61, 48, 30, 0.14);
+      --color-divider: rgba(61, 48, 30, 0.10);
+      --color-text: #2b2217;
+      --color-text-muted: #6f6252;
+      --color-text-faint: #9e927f;
+      --color-primary: #6c4b1f;
+      --color-primary-hover: #543815;
+      --color-secondary: #0f5c57;
+      --color-highlight: #b98b35;
+      --color-ink: rgba(43, 34, 23, 0.06);
+      --shadow-sm: 0 8px 20px rgba(51, 38, 24, 0.06);
+      --shadow-md: 0 18px 45px rgba(51, 38, 24, 0.10);
+      --radius-sm: .5rem; --radius-md: .85rem; --radius-lg: 1.2rem; --radius-xl: 1.7rem; --radius-full: 999px;
+      --content: 1180px;
+      --font-display: "Cairo", sans-serif;
+      --font-body: "Noto Naskh Arabic", serif;
+      --transition: 180ms cubic-bezier(.16,1,.3,1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #181410;
+      --color-surface: #211b16;
+      --color-surface-2: #2a221b;
+      --color-surface-offset: #31271e;
+      --color-surface-accent: #2b241c;
+      --color-border: rgba(235, 222, 202, 0.12);
+      --color-divider: rgba(235, 222, 202, 0.08);
+      --color-text: #efe5d6;
+      --color-text-muted: #c7b8a1;
+      --color-text-faint: #93846f;
+      --color-primary: #d3a453;
+      --color-primary-hover: #e2b86e;
+      --color-secondary: #6eb7b1;
+      --color-highlight: #f1c979;
+      --color-ink: rgba(255, 246, 231, 0.05);
+      --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.26);
+      --shadow-md: 0 20px 48px rgba(0, 0, 0, 0.34);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg: #181410;
+        --color-surface: #211b16;
+        --color-surface-2: #2a221b;
+        --color-surface-offset: #31271e;
+        --color-surface-accent: #2b241c;
+        --color-border: rgba(235, 222, 202, 0.12);
+        --color-divider: rgba(235, 222, 202, 0.08);
+        --color-text: #efe5d6;
+        --color-text-muted: #c7b8a1;
+        --color-text-faint: #93846f;
+        --color-primary: #d3a453;
+        --color-primary-hover: #e2b86e;
+        --color-secondary: #6eb7b1;
+        --color-highlight: #f1c979;
+      }
+    }
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;text-size-adjust:none;-webkit-font-smoothing:antialiased}
+    body{min-height:100vh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.9;background:var(--color-bg);color:var(--color-text);background-image:radial-gradient(circle at top, rgba(185,139,53,.07), transparent 26%), linear-gradient(to bottom, transparent, rgba(15,92,87,.03));}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit;color:inherit}
+    button{cursor:pointer;border:0;background:none}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    ::selection{background:rgba(185,139,53,.22)}
+
+    .skip-link{position:absolute;top:-100px;right:var(--space-4);background:var(--color-primary);color:#fff;padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);z-index:1000}
+    .skip-link:focus{top:var(--space-4)}
+    .container{width:min(calc(100% - 2rem), var(--content));margin-inline:auto}
+
+    .site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--color-bg) 84%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--color-divider)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4) 0}
+    .brand{display:flex;align-items:center;gap:var(--space-3);min-width:0}
+    .logo{width:52px;height:52px;color:var(--color-primary);flex:none}
+    .brand-text strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);line-height:1.2}
+    .brand-text span{display:block;color:var(--color-text-muted);font-size:var(--text-xs)}
+    .header-actions{display:flex;align-items:center;gap:var(--space-2)}
+    .theme-toggle,.menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid var(--color-border);background:var(--color-surface);transition:transform var(--transition),background var(--transition),border-color var(--transition)}
+    .theme-toggle:hover,.menu-toggle:hover{transform:translateY(-2px);background:var(--color-surface-2)}
+    .menu-toggle{display:none}
+
+    .nav-shell{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding-bottom:var(--space-3)}
+    .nav-links{display:flex;flex-wrap:wrap;gap:var(--space-2);list-style:none}
+    .nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:.7rem 1rem;border-radius:var(--radius-full);color:var(--color-text-muted);font-size:var(--text-sm);transition:background var(--transition),color var(--transition)}
+    .nav-links a:hover,.nav-links a.active{background:var(--color-surface-accent);color:var(--color-primary)}
+    .nav-note{color:var(--color-text-faint);font-size:var(--text-xs)}
+
+    .hero{padding:clamp(var(--space-10), 10vw, var(--space-24)) 0 var(--space-12);position:relative;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-8);align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);padding:.5rem .9rem;border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface);color:var(--color-text-muted);font-size:var(--text-xs);margin-bottom:var(--space-4)}
+    .hero h1{font-family:var(--font-display);font-size:var(--text-hero);line-height:1.08;letter-spacing:-.03em;max-width:12ch;margin-bottom:var(--space-4)}
+    .hero p{max-width:62ch;color:var(--color-text-muted);margin-bottom:var(--space-6)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.9rem 1.25rem;border-radius:var(--radius-full);border:1px solid transparent;transition:transform var(--transition),background var(--transition),border-color var(--transition),color var(--transition)}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--color-primary);color:#fff}
+    .btn-primary:hover{background:var(--color-primary-hover)}
+    .btn-secondary{background:var(--color-surface);border-color:var(--color-border)}
+
+    .hero-panel{position:relative;background:linear-gradient(180deg, var(--color-surface), var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-md);overflow:hidden}
+    .hero-panel::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg, transparent 0 32px, var(--color-ink) 32px 33px);opacity:.7;pointer-events:none}
+    .hero-panel > *{position:relative}
+    .hero-card-title{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-4)}
+    .hero-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
+    .mini-card{padding:var(--space-4);border-radius:var(--radius-lg);background:color-mix(in srgb, var(--color-surface) 72%, transparent);border:1px solid var(--color-border)}
+    .mini-card span{display:block;font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:.3rem}
+    .mini-card strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);line-height:1.3}
+
+    .section{padding:clamp(var(--space-8), 7vw, var(--space-20)) 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space-4);margin-bottom:var(--space-6)}
+    .section-head h2{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.15}
+    .section-head p{color:var(--color-text-muted);max-width:56ch}
+
+    .domains{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-4)}
+    .domain-card{grid-column:span 4;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5);box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:transform var(--transition),border-color var(--transition),box-shadow var(--transition)}
+    .domain-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(108,75,31,.24)}
+    .domain-card::after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,var(--color-primary),var(--color-secondary),var(--color-highlight));opacity:.7}
+    .domain-index{font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-3)}
+    .domain-card h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .domain-card p{color:var(--color-text-muted);font-size:var(--text-sm)}
+
+    .editorial{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-5);align-items:stretch}
+    .feature{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm)}
+    .feature.large{display:flex;flex-direction:column;justify-content:space-between;min-height:100%}
+    .feature .meta{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-4);color:var(--color-text-faint);font-size:var(--text-xs)}
+    .feature h3{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.2;margin-bottom:var(--space-3)}
+    .feature p{color:var(--color-text-muted)}
+    .feature-stack{display:grid;gap:var(--space-5)}
+
+    .quote-band{background:linear-gradient(135deg, var(--color-surface-2), var(--color-surface));border-block:1px solid var(--color-divider)}
+    .quote-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--space-6);align-items:center}
+    .quote-mark{font-family:var(--font-display);font-size:clamp(4rem, 10vw, 8rem);color:var(--color-highlight);line-height:.8;opacity:.7}
+    blockquote{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.5}
+    .quote-side{color:var(--color-text-muted)}
+
+    .path-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+    .path-card{background:var(--color-surface);padding:var(--space-5);border-radius:var(--radius-xl);border:1px solid var(--color-border)}
+    .path-card strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .path-card p{color:var(--color-text-muted);font-size:var(--text-sm)}
+
+    .archive{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-5)}
+    .archive-sidebar,.archive-main{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5)}
+    .archive-sidebar{position:sticky;top:7.5rem;height:fit-content}
+    .archive-sidebar h3,.archive-main h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-4)}
+    .archive-list,.post-list{list-style:none;display:grid;gap:var(--space-3)}
+    .archive-list a,.post-item{display:block;padding:var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-2);border:1px solid transparent;transition:background var(--transition),border-color var(--transition),transform var(--transition)}
+    .archive-list a:hover,.post-item:hover{border-color:var(--color-border);transform:translateY(-2px)}
+    .post-item small{display:block;color:var(--color-text-faint);margin-bottom:.35rem}
+    .post-item strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:.35rem}
+    .post-item span{display:block;color:var(--color-text-muted);font-size:var(--text-sm)}
+
+    .admin-note{background:linear-gradient(135deg, color-mix(in srgb,var(--color-primary) 10%, var(--color-surface)), var(--color-surface));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center}
+    .admin-note h2{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-2)}
+    .admin-note p{color:var(--color-text-muted)}
+    .admin-note code{direction:ltr;display:inline-block;padding:.15rem .4rem;background:var(--color-surface-2);border-radius:var(--radius-sm);font-size:.9em}
+
+    .site-footer{padding:var(--space-8) 0 var(--space-10);border-top:1px solid var(--color-divider);color:var(--color-text-muted)}
+    .footer-grid{display:flex;justify-content:space-between;gap:var(--space-4);align-items:center;flex-wrap:wrap}
+    .footer-links{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+    .footer-links a{padding:.35rem 0}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+
+    @media (max-width: 1000px){
+      .hero-grid,.editorial,.quote-wrap,.archive,.admin-note{grid-template-columns:1fr}
+      .domains .domain-card{grid-column:span 6}
+      .archive-sidebar{position:static}
+    }
+
+    @media (max-width: 720px){
+      .menu-toggle{display:inline-flex}
+      .nav-shell{display:none;flex-direction:column;align-items:stretch;padding:0 0 var(--space-3)}
+      .nav-shell.open{display:flex}
+      .nav-links{flex-direction:column}
+      .nav-links a{justify-content:space-between;border-radius:var(--radius-lg);background:var(--color-surface)}
+      .hero h1{max-width:none}
+      .hero-card-grid,.path-grid{grid-template-columns:1fr}
+      .domains .domain-card{grid-column:1/-1}
+      .section-head,.footer-grid{align-items:flex-start}
+      .section-head{flex-direction:column}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">تخطَّ إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="#hero" aria-label="العودة إلى بداية الصفحة">
+          <svg class="logo" viewBox="0 0 64 64" aria-hidden="true" fill="none">
+            <path d="M12 49C22 46 27 39 29 28C30 22 31 18 36 15C41 13 48 14 52 19C43 18 38 22 37 29C36 37 32 45 21 50" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M17 16H47" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M20 24H44" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity=".85"/>
+            <path d="M23 32H40" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+            <circle cx="49" cy="45" r="4.5" stroke="currentColor" stroke-width="2" opacity=".7"/>
+          </svg>
+          <div class="brand-text">
+            <strong>مدونة أحمد زين</strong>
+            <span>فقهٌ أصيل، ونظرٌ معاصر</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="تبديل وضع الإضاءة" title="تبديل وضع الإضاءة">
+            <span aria-hidden="true">☾</span>
+          </button>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-label="فتح وإغلاق القائمة" aria-expanded="false" aria-controls="site-nav">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+
+      <nav id="site-nav" class="nav-shell" aria-label="التنقل الرئيسي">
+        <ul class="nav-links">
+          <li><a href="#domains">التخصصات</a></li>
+          <li><a href="#featured">الافتتاحيات</a></li>
+          <li><a href="#paths">مسارات الكتابة</a></li>
+          <li><a href="#archive">الأرشيف</a></li>
+          <li><a href="#admin">الإدارة</a></li>
+        </ul>
+        <p class="nav-note">صفحة واحدة منظمة، والتنقل بينها سلس ومباشر.</p>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">مدونة شخصية • تراث فقهي • نفس عصري</span>
+          <h1>منبرٌ يلتقي فيه الفقه الحنبلي مع الاقتصاد والإنسان والطب.</h1>
+          <p>
+            هذه المدونة مصممة لتُظهر روحًا تجمع بين أصالة المتون وروح البحث المعاصر؛ فيها بناء واضح، ومساحات هادئة، وخطاب يَسَعُ الفقه وأصوله ومقاصده، كما يَسَعُ علم النفس والاجتماع والاقتصاد الإسلامي والصيدلة والطب.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#domains">ابدأ من التخصصات</a>
+            <a class="btn btn-secondary" href="#archive">تصفّح بنية الأرشيف</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="موجز هوية المدونة">
+          <div class="hero-card-title">هوية المدونة</div>
+          <div class="hero-card-grid">
+            <div class="mini-card">
+              <span>الروح</span>
+              <strong>تراثية رصينة</strong>
+            </div>
+            <div class="mini-card">
+              <span>الأسلوب</span>
+              <strong>عصري انسيابي</strong>
+            </div>
+            <div class="mini-card">
+              <span>الموضوع</span>
+              <strong>فقه وفكر وطب</strong>
+            </div>
+            <div class="mini-card">
+              <span>الملمح الشخصي</span>
+              <strong>قهوة وتأمل وتحليل</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="domains">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>مجالات المدونة</h2>
+          </div>
+          <p>الواجهة مبنية لتسمح لك بعرض المجالات على هيئة بطاقات واضحة، ثم لاحقًا يمكنك ربط كل بطاقة بقسم داخلي أو صفحة مقالة أو أرشيف مستقل داخل البنية نفسها.</p>
+        </div>
+
+        <div class="domains">
+          <article class="domain-card reveal">
+            <div class="domain-index">01</div>
+            <h3>الفقه الحنبلي</h3>
+            <p>قراءة تحريرية للمسائل، وبناء الملكة الفقهية، ومراجعة التطبيقات المعاصرة ضمن نفس فقهي منضبط.</p>
+          </article>
+          <article class="domain-card reveal">
+            <div class="domain-index">02</div>
+            <h3>أصول الفقه</h3>
+            <p>تحرير المناط، ومآخذ الأدلة، ومسالك الاستدلال، وصياغة عقلية أصولية يمكنها خدمة القضايا المعاصرة.</p>
+          </article>
+          <article class="domain-card reveal">
+            <div class="domain-index">03</div>
+            <h3>مقاصد الشريعة</h3>
+            <p>مقاربة تجمع بين الانضباط النصي والنظر المقاصدي بعيدًا عن التسيب أو الجمود.</p>
+          </article>
+          <article class="domain-card reveal">
+            <div class="domain-index">04</div>
+            <h3>علم الاجتماع</h3>
+            <p>تحليل البنى والسلوك الجمعي والتحولات الثقافية وعلاقتها بالفقه والاقتصاد والوعي العام.</p>
+          </article>
+          <article class="domain-card reveal">
+            <div class="domain-index">05</div>
+            <h3>علم النفس</h3>
+            <p>مدخل لفهم الدوافع والتحيزات والإدراك والسلوك، وربطها بالتزكية والقرار والمعرفة.</p>
+          </article>
+          <article class="domain-card reveal">
+            <div class="domain-index">06</div>
+            <h3>الاقتصاد الإسلامي</h3>
+            <p>بحث في فلسفة الاقتصاد، وهياكل التمويل، ومسائل الربا والزكاة والسوق والنقود من منظور تحليلي.</p>
+          </article>
+          <article class="domain-card reveal">
+            <div class="domain-index">07</div>
+            <h3>الصيدلة والطب</h3>
+            <p>محتوى علمي مبسط ودقيق حول الدواء، وآليات التأثير، والتحليل الطبي، والربط بين الشرع والطب عند الحاجة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>افتتاحيات بارزة</h2>
+          </div>
+          <p>هذه المنطقة تمثل الصفحات أو المقالات الأبرز، بتقسيم افتتاحي أقرب إلى المجلات الفكرية لا إلى المدونات التقليدية الجامدة.</p>
+        </div>
+
+        <div class="editorial">
+          <article class="feature large reveal">
+            <div>
+              <div class="meta"><span>افتتاحية</span><span>فقه المعاملات</span><span>اقتصاد إسلامي</span></div>
+              <h3>كيف تصوغ المدونة موقفًا علميًّا يجمع بين التحقيق الفقهي والقراءة الاقتصادية؟</h3>
+              <p>هذه المساحة مناسبة للمقالة الرئيسة في الصفحة الأولى؛ تُبرز أطروحة واحدة قوية، وتضع القارئ مباشرة في قلب مشروعك المعرفي.</p>
+            </div>
+            <a class="btn btn-secondary" href="#archive">اذهب إلى الأرشيف التحريري</a>
+          </article>
+
+          <div class="feature-stack">
+            <article class="feature reveal">
+              <div class="meta"><span>رصد</span><span>علم النفس</span></div>
+              <h3>بين الإدراك والتحيز: كيف يخطئ الإنسان وهو يظن أنه يحسن النظر؟</h3>
+              <p>قالب مناسب لمقالة قصيرة أو مراجعة كتاب أو تأمل بحثي.</p>
+            </article>
+            <article class="feature reveal">
+              <div class="meta"><span>ملف خاص</span><span>طب وصيدلة</span></div>
+              <h3>من آلية الدواء إلى وعي المريض: كتابة طبية مختصرة بلا تضييع للمعلومة.</h3>
+              <p>يخدم المقالات الطبية أو التثقيفية أو الشروحات الصيدلانية المحكمة.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote-band" aria-label="الهوية الفكرية للمدونة">
+      <div class="container quote-wrap">
+        <div class="quote-mark reveal">“</div>
+        <div class="reveal">
+          <blockquote>
+            مدونة لا تفصل بين النص والواقع، ولا بين الفقه والإنسان، ولا بين أصالة العلم ودقة التحليل.
+          </blockquote>
+          <p class="quote-side">صيغت لتبدو كمجلس علم هادئ، لكن بأدوات قراءة معاصرة، وتنقل واضح، وتجربة بصرية مرنة.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="paths">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>مسارات الكتابة</h2>
+          </div>
+          <p>يمكنك توزيع المحتوى حسب نوع الكتابة لا حسب العلم فقط، وهذا يجعل التصفح أذكى وأسهل للزائر.</p>
+        </div>
+
+        <div class="path-grid">
+          <article class="path-card reveal">
+            <strong>مقالات تأسيسية</strong>
+            <p>للمتون المفهومية والمداخل الكلية والخرائط العامة للمجالات العلمية.</p>
+          </article>
+          <article class="path-card reveal">
+            <strong>تحريرات وبحوث</strong>
+            <p>للمسائل التي تحتاج تحقيقًا أو تخريجًا أو جمعًا بين المدارس أو ربطًا بين النص والواقع.</p>
+          </article>
+          <article class="path-card reveal">
+            <strong>تأملات ومراجعات</strong>
+            <p>للكتب، والدروس، والظواهر الاجتماعية، وملاحظات القهوة الهادئة التي تخرج بفكرة مركزة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="archive">
+      <div class="container archive">
+        <aside class="archive-sidebar reveal">
+          <h3>فهرس داخلي</h3>
+          <ul class="archive-list">
+            <li><a href="#domains">التخصصات الرئيسة</a></li>
+            <li><a href="#featured">المقالات البارزة</a></li>
+            <li><a href="#paths">أنماط الكتابة</a></li>
+            <li><a href="#admin">إرشادات التعديل</a></li>
+          </ul>
+        </aside>
+
+        <div class="archive-main reveal">
+          <h3>نماذج بطاقات المقالات</h3>
+          <ul class="post-list">
+            <li class="post-item">
+              <small>أصول الفقه • تحرير</small>
+              <strong>متى يكون الخلاف لفظيًّا، ومتى ينعكس على الحكم والفتوى؟</strong>
+              <span>بطاقة مناسبة لمقالة علمية طويلة مع وصف مختصر واضح.</span>
+            </li>
+            <li class="post-item">
+              <small>الاقتصاد الإسلامي • تحليل</small>
+              <strong>المال والائتمان والسوق: هل تكفي اللغة الفقهية وحدها لوصف البنية الحديثة؟</strong>
+              <span>يمكن ربط البطاقة لاحقًا بصفحة داخلية أو قسم خاص أو وسوم متعددة.</span>
+            </li>
+            <li class="post-item">
+              <small>علم النفس • مراجعة</small>
+              <strong>التفسير السريع للسلوك: لماذا نحب الأحكام المختصرة رغم ضعفها؟</strong>
+              <span>مناسب للمراجعات، أو سلاسل المحتوى، أو النصوص القصيرة المتتابعة.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="admin">
+      <div class="container">
+        <div class="admin-note reveal">
+          <div>
+            <h2>التعديل والإضافة من الداخل</h2>
+            <p>
+              كل النصوص مرتبة داخل أقسام واضحة في نفس الملف. ستجد مناطق سهلة التعديل مثل: <code>&lt;section id="domains"&gt;</code> و <code>&lt;section id="featured"&gt;</code> و <code>&lt;ul class="post-list"&gt;</code>. أضف بطاقة جديدة بنسخ بطاقة سابقة، أو عدّل الألوان والخطوط من بداية وسم <code>&lt;style&gt;</code> دون الحاجة إلى إعادة بناء الموقع من الصفر.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="#hero">عودة إلى الأعلى</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>صُممت هذه الواجهة لتكون أساسًا مرنًا لمدونة شخصية عربية تجمع بين الوقار العلمي والانسيابية الحديثة.</p>
+      <div class="footer-links">
+        <a href="#hero">الرئيسة</a>
+        <a href="#domains">التخصصات</a>
+        <a href="#archive">الأرشيف</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      const menuToggle = document.querySelector('[data-menu-toggle]');
+      const nav = document.querySelector('.nav-shell');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let theme = prefersDark ? 'dark' : 'light';
+
+      function paintTheme() {
+        root.setAttribute('data-theme', theme);
+        if (themeToggle) {
+          themeToggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">☀</span>' : '<span aria-hidden="true">☾</span>';
+          themeToggle.setAttribute('aria-label', theme === 'dark' ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن');
+        }
+      }
+
+      paintTheme();
+      themeToggle && themeToggle.addEventListener('click', function () {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        paintTheme();
+      });
+
+      menuToggle && menuToggle.addEventListener('click', function () {
+        const open = nav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+      });
+
+      const links = document.querySelectorAll('.nav-links a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          links.forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+          nav.classList.remove('open');
+          menuToggle && menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }());
+  </script>
+</body>
+</html>
