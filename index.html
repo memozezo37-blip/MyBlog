@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة التراث والعصر</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfaf7;
+            --text-color: #2c2c2c;
+            --accent-color: #1a4731; /* Deep Jurisprudential Green */
+            --secondary-color: #8b7355; /* Parchment/Gold */
+            --card-bg: #ffffff;
+            --border-color: #e0d7c6;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #4ade80;
+            --secondary-color: #c4a484;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .heritage-font {
+            font-family: 'Amiri', serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* Specialties Grid */
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent-color);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Post Item (For editing simulation) */
+        .post-list {
+            margin-top: 40px;
+        }
+
+        .post-item {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+        }
+
+        .coffee-icon {
+            font-size: 1.5rem;
+            color: #6f4e37;
+            margin-bottom: 10px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            nav { gap: 10px; }
+            nav a { padding: 5px 10px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <button class="theme-toggle" onclick="toggleTheme()" title="تغيير الوضع">
+        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+
+    <header>
+        <div class="container">
+            <div class="logo heritage-font">مدونة الأَصَالة</div>
+            <div class="subtitle">بين محابر الفقهاء ومختبرات العصر</div>
+            <nav>
+                <a href="#" class="active" onclick="showSection('home', event)">الرئيسية</a>
+                <a href="#" onclick="showSection('feqh', event)">الفقه والأصول</a>
+                <a href="#" onclick="showSection('science', event)">العلوم والمجتمع</a>
+                <a href="#" onclick="showSection('med', event)">الطب والصيدلة</a>
+                <a href="#" onclick="showSection('about', event)">عني</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1 class="hero-title">مزيج من التراث والحداثة</h1>
+                <p class="hero-desc">هنا نناقش الفقه بروح اقتصادية، والطب بعين فقهية، والاجتماع بقلب تراثي.. مع رشفة قهوة تعيد ترتيب الأفكار.</p>
+            </div>
+
+            <div class="specialties-grid">
+                <div class="card" onclick="showSection('feqh', event)">
+                    <div class="heritage-font">⚖️</div>
+                    <h3>الفقه الحنبلي وأصوله</h3>
+                    <p>تحقيقات فقهية معاصرة في المذهب الحنبلي، وتطبيقات أصولية حديثة.</p>
+                </div>
+                <div class="card" onclick="showSection('feqh', event)">
+                    <div class="heritage-font">🎯</div>
+                    <h3>مقاصد الشريعة</h3>
+                    <p>فهم مرامي التشريع وربطها بالواقع المتغير لتحقيق المصالح.</p>
+                </div>
+                <div class="card" onclick="showSection('science', event)">
+                    <div class="heritage-font">📈</div>
+                    <h3>الاقتصاد الإسلامي</h3>
+                    <p>تحليل النظم المالية برؤية شرعية تواكب تحديات العصر الرقمي.</p>
+                </div>
+                <div class="card" onclick="showSection('science', event)">
+                    <div class="heritage-font">🧠</div>
+                    <h3>علم النفس والاجتماع</h3>
+                    <p>دراسة النفس البشرية والمجتمعات في ضوء الوحي والتجربة الإنسانية.</p>
+                </div>
+                <div class="card" onclick="showSection('med', event)">
+                    <div class="heritage-font">🧪</div>
+                    <h3>الصيدلة والطب</h3>
+                    <p>تكامل العلوم التجريبية مع الأخلاقيات الطبية والشرعية.</p>
+                </div>
+                <div class="card">
+                    <div class="heritage-font">☕</div>
+                    <h3>زاوية القهوة</h3>
+                    <p>تأملات حرة حول القهوة، الفن، والجمال في تفاصيل الحياة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feqh Section -->
+        <section id="feqh" class="section">
+            <h2 class="hero-title">الفقه والأصول</h2>
+            <div class="post-list">
+                <div class="post-item">
+                    <div class="post-meta">١٨ يوليو ٢٠٢٦ | الفقه الحنبلي</div>
+                    <h3 class="heritage-font">تحرير القول في المسائل المستجدة</h3>
+                    <p>نظرة فاحصة في كيفية التعامل مع النوازل الفقهية من منظور حنبلي أصيل...</p>
+                </div>
+                <div class="post-item">
+                    <div class="post-meta">١٥ يوليو ٢٠٢٦ | مقاصد الشريعة</div>
+                    <h3 class="heritage-font">المقاصد في زمن الذكاء الاصطناعي</h3>
+                    <p>كيف يمكن للمقاصد أن توجه الابتكار التكنولوجي نحو خير البشرية؟</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Science Section -->
+        <section id="science" class="section">
+            <h2 class="hero-title">العلوم والمجتمع</h2>
+            <div class="post-list">
+                <div class="post-item">
+                    <div class="post-meta">١٠ يوليو ٢٠٢٦ | الاقتصاد</div>
+                    <h3 class="heritage-font">مستقبل العملات الرقمية</h3>
+                    <p>تحليل اقتصادي اجتماعي لظاهرة العملات المشفرة وتأثيرها على العدالة المالية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medicine Section -->
+        <section id="med" class="section">
+            <h2 class="hero-title">الطب والصيدلة</h2>
+            <div class="post-list">
+                <div class="post-item">
+                    <div class="post-meta">٥ يوليو ٢٠٢٦ | الصيدلة</div>
+                    <h3 class="heritage-font">أخلاقيات الدواء في الفكر الإسلامي</h3>
+                    <p>بين البحث العلمي والمصلحة الشرعية، أين يقف الصيدلي اليوم؟</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="hero-title">عن صاحب المدونة</h2>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p>باحث يجمع بين عمق التراث الفقهي وآفاق العلوم العصرية. أؤمن أن الأصالة لا تعني الجمود، وأن المعاصرة لا تعني الانسلاخ.</p>
+                <p style="margin-top: 20px;">تخصصاتي تتراوح بين الفقه الحنبلي وأصوله، إلى الاقتصاد والطب، يجمعها خيط واحد هو البحث عن الحقيقة وخدمة الإنسان.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="coffee-icon">☕</div>
+            <p class="heritage-font">مدونة الأَصَالة - ٢٠٢٦</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">صُنعت بروح تجمع بين المحبرة والشاشة</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.innerHTML = '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+            }
+        }
+
+        function showSection(sectionId, event) {
+            if (event) event.preventDefault();
+            
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            
+            // Show target section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav links
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
