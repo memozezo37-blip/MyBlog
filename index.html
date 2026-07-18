@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="light" lang="ar" dir="rtl">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -187,101 +187,9 @@
     .hero{padding:38px 20px 20px;}
     .article-wrap{padding:28px 18px 70px;}
   }
-
-
-    :root,
-    [data-theme="light"] {
-      --theme-bg: #f7f7fb;
-      --theme-surface: #ffffff;
-      --theme-text: #111827;
-      --theme-text-muted: #4b5563;
-      --theme-border: rgba(17, 24, 39, 0.12);
-      --theme-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      --theme-accent: #2563eb;
-      --theme-accent-2: #1d4ed8;
-    }
-
-    [data-theme="dark"] {
-      --theme-bg: #0f172a;
-      --theme-surface: #111827;
-      --theme-text: #f9fafb;
-      --theme-text-muted: #cbd5e1;
-      --theme-border: rgba(248, 250, 252, 0.14);
-      --theme-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-      --theme-accent: #60a5fa;
-      --theme-accent-2: #93c5fd;
-    }
-
-    html, body {
-      background: var(--theme-bg);
-      color: var(--theme-text);
-    }
-
-    body {
-      transition: background-color 0.25s ease, color 0.25s ease;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 9999;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 46px;
-      height: 46px;
-      border-radius: 999px;
-      border: 1px solid var(--theme-border);
-      background: var(--theme-surface);
-      color: var(--theme-text);
-      box-shadow: var(--theme-shadow);
-      cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-    }
-
-    .theme-toggle:hover { transform: translateY(-1px); }
-    .theme-toggle:active { transform: translateY(0); }
-    .theme-toggle svg { width: 20px; height: 20px; }
-
-    [data-theme="dark"] body,
-    [data-theme="dark"] main,
-    [data-theme="dark"] section,
-    [data-theme="dark"] article,
-    [data-theme="dark"] aside,
-    [data-theme="dark"] header,
-    [data-theme="dark"] footer,
-    [data-theme="dark"] nav,
-    [data-theme="dark"] .container,
-    [data-theme="dark"] .card,
-    [data-theme="dark"] .box,
-    [data-theme="dark"] .panel,
-    [data-theme="dark"] .modal,
-    [data-theme="dark"] .content,
-    [data-theme="dark"] .wrapper {
-      color: var(--theme-text);
-    }
-
-    [data-theme="dark"] a { color: var(--theme-accent-2); }
-    [data-theme="dark"] input,
-    [data-theme="dark"] textarea,
-    [data-theme="dark"] select,
-    [data-theme="dark"] button:not(.theme-toggle) {
-      color: inherit;
-    }
-
-    img, video, iframe, canvas, svg { max-width: 100%; }
-    
 </style>
 </head>
 <body>
-
-<button class="theme-toggle" type="button" data-theme-toggle aria-label="تفعيل الوضع الداكن" title="تبديل الإضاءة">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-  </svg>
-</button>
-
 <div id="app"></div>
 
 <script>
@@ -638,36 +546,5 @@ function render(){
 
 loadPosts();
 </script>
-
-<script>
-(function () {
-  const root = document.documentElement;
-  const toggle = document.querySelector('[data-theme-toggle]');
-  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-  const moonIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
-  const sunIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2"></path><path d="M12 21v2"></path><path d="M4.22 4.22l1.42 1.42"></path><path d="M18.36 18.36l1.42 1.42"></path><path d="M1 12h2"></path><path d="M21 12h2"></path><path d="M4.22 19.78l1.42-1.42"></path><path d="M18.36 5.64l1.42-1.42"></path></svg>';
-
-  let currentTheme = darkQuery.matches ? 'dark' : 'light';
-
-  function renderTheme(theme) {
-    currentTheme = theme;
-    root.setAttribute('data-theme', theme);
-    if (!toggle) return;
-    toggle.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
-    toggle.setAttribute('aria-label', theme === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن');
-    toggle.setAttribute('title', theme === 'dark' ? 'الوضع الفاتح' : 'الوضع الداكن');
-  }
-
-  renderTheme(currentTheme);
-
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      renderTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
-  }
-})();
-</script>
-
 </body>
 </html>
