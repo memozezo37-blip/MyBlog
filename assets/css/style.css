@@ -36,16 +36,16 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0c1410;
+  --bg: #1a1412;
   --bg-elevated: #14201a;
   --bg-soft: #1a2a22;
   --bg-card: rgba(20, 32, 26, 0.92);
   --ink: #e8efe9;
   --ink-muted: #a8b8ae;
   --ink-faint: #6d7f74;
-  --accent: #6fbf92;
+  --accent: #2c1f1b;
   --accent-soft: #95d5b2;
-  --gold: #d4b56a;
+  --gold: #e6b94a;
   --gold-soft: #e6cd8a;
   --gold-glow: rgba(212, 181, 106, 0.14);
   --coffee: #c4a484;
