@@ -3,56 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدونتي | فقهٌ وقهوة</title>
+    <title>مدونة التراث والعصر</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@100;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #fdf8f0;
-            --bg-secondary: #f5ede0;
-            --bg-card: #fffaf3;
-            --text: #3e2c1c;
-            --text-secondary: #6b5a47;
-            --text-muted: #8c7b68;
-            --accent: #8b5e3c;
-            --accent-light: #c49a6c;
-            --accent-dark: #5c3a1e;
-            --gold: #b8860b;
-            --gold-light: #d4a843;
-            --border: #e0d3c0;
-            --border-light: #ede0ce;
-            --shadow-sm: 0 1px 3px rgba(60, 30, 10, 0.06);
-            --shadow: 0 4px 20px rgba(60, 30, 10, 0.08);
-            --shadow-lg: 0 12px 40px rgba(60, 30, 10, 0.12);
-            --radius: 16px;
-            --radius-sm: 10px;
-            --radius-xs: 6px;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --font-heading: 'Noto Naskh Arabic', 'Amiri', 'Traditional Arabic', serif;
-            --font-body: 'Noto Sans Arabic', 'Tahoma', sans-serif;
-            --pattern-opacity: 0.03;
-            --steam-opacity: 0.5;
-            --overlay: rgba(253, 248, 240, 0.85);
+            --bg-color: #fcfaf7;
+            --text-color: #2c2c2c;
+            --accent-color: #1a4731; /* Deep Jurisprudential Green */
+            --secondary-color: #8b7355; /* Parchment/Gold */
+            --card-bg: #ffffff;
+            --border-color: #e0d7c6;
+            --transition: all 0.3s ease;
         }
 
-        .dark-mode {
-            --bg: #1a1410;
-            --bg-secondary: #221b15;
-            --bg-card: #261e17;
-            --text: #e8dcc8;
-            --text-secondary: #c4b59a;
-            --text-muted: #a09480;
-            --accent: #c49a6c;
-            --accent-light: #d4a843;
-            --accent-dark: #e8c97a;
-            --gold: #d4a843;
-            --gold-light: #e8c97a;
-            --border: #3a3025;
-            --border-light: #2e261d;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4);
-            --pattern-opacity: 0.06;
-            --steam-opacity: 0.35;
-            --overlay: rgba(26, 20, 16, 0.88);
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #4ade80;
+            --secondary-color: #c4a484;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
         }
 
         * {
@@ -61,616 +34,366 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.8;
-            transition: background-color var(--transition), color var(--transition);
-            min-height: 100vh;
-            position: relative;
+            transition: var(--transition);
             overflow-x: hidden;
         }
 
-        /* Geometric pattern background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: var(--pattern-opacity);
-            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='120' height='120' patternUnits='userSpaceOnUse'%3E%3Cpath d='M60 0L120 60L60 120L0 60Z' fill='none' stroke='%238b5e3c' stroke-width='0.5'/%3E%3Ccircle cx='60' cy='60' r='28' fill='none' stroke='%238b5e3c' stroke-width='0.4'/%3E%3Ccircle cx='60' cy='60' r='14' fill='none' stroke='%238b5e3c' stroke-width='0.3'/%3E%3Cpath d='M60 32l14 28H46z' fill='none' stroke='%238b5e3c' stroke-width='0.35'/%3E%3Cpath d='M60 88l14-28H46z' fill='none' stroke='%238b5e3c' stroke-width='0.35'/%3E%3Cpath d='M32 60l28-14v28z' fill='none' stroke='%238b5e3c' stroke-width='0.35'/%3E%3Cpath d='M88 60l-28-14v28z' fill='none' stroke='%238b5e3c' stroke-width='0.35'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E");
-            background-size: 120px 120px;
-            transition: opacity var(--transition);
-        }
-
-        /* Coffee bean accent dots */
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 18px;
-            height: 26px;
-            border-radius: 50%;
-            background: var(--accent-light);
-            opacity: 0.2;
-            pointer-events: none;
-            z-index: 0;
-            transform: rotate(-25deg);
-            box-shadow: 16px -4px 0 0 var(--accent-light);
-            transition: all var(--transition);
+        h1, h2, h3, .heritage-font {
+            font-family: 'Amiri', serif;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
             position: relative;
-            z-index: 1;
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--overlay);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-light);
-            padding: 12px 0;
-            transition: all var(--transition);
-        }
-
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--text);
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: 0.02em;
-            transition: color var(--transition);
-            white-space: nowrap;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
-        .logo .coffee-cup {
-            display: inline-flex;
-            align-items: center;
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        nav {
+            margin-top: 30px;
+            display: flex;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            font-size: 1.6rem;
-            position: relative;
-            animation: steamFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes steamFloat {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .logo .steam {
-            position: absolute;
-            top: -10px;
-            font-size: 0.5rem;
-            opacity: var(--steam-opacity);
-            animation: steamUp 2s ease-in-out infinite;
-        }
-        .logo .steam:nth-child(2) {
-            left: 6px;
-            animation-delay: 0.3s;
-        }
-        .logo .steam:nth-child(3) {
-            left: 14px;
-            animation-delay: 0.7s;
-        }
-
-        @keyframes steamUp {
-            0% {
-                opacity: 0;
-                transform: translateY(4px) scale(0.8);
-            }
-            40% {
-                opacity: var(--steam-opacity);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-10px) scale(1.3);
-            }
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-        .logo-text .main {
-            font-size: 1.3rem;
-        }
-        .logo-text .sub {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-family: var(--font-body);
-            font-weight: 400;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            gap: 20px;
             flex-wrap: wrap;
-            list-style: none;
         }
 
-        .nav a {
+        nav a {
             text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding: 8px 14px;
-            border-radius: 24px;
-            transition: all var(--transition);
+            color: var(--text-color);
             font-weight: 500;
-            white-space: nowrap;
-            position: relative;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: var(--transition);
+            border: 1px solid transparent;
         }
 
-        .nav a:hover,
-        .nav a.active {
-            color: var(--accent);
-            background: var(--bg-secondary);
+        nav a:hover, nav a.active {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
         }
 
-        .nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            width: 20px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 1px;
-            transition: transform var(--transition);
-        }
-        .nav a:hover::after,
-        .nav a.active::after {
-            transform: translateX(-50%) scaleX(1);
-        }
-
-        /* Theme toggle */
+        /* Theme Toggle */
         .theme-toggle {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            cursor: pointer;
-            font-size: 1.2rem;
-            width: 42px;
-            height: 42px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition);
-            color: var(--text);
-            flex-shrink: 0;
-        }
-        .theme-toggle:hover {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-            transform: rotate(20deg);
-        }
-
-        /* Mobile menu button */
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
             cursor: pointer;
-            font-size: 1.6rem;
-            color: var(--text);
-            padding: 4px;
-            line-height: 1;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* ===== HERO ===== */
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 60px 20px 50px;
-            position: relative;
+            margin-bottom: 80px;
         }
 
-        .hero .coffee-icon-large {
-            font-size: 4rem;
-            display: block;
-            margin-bottom: 10px;
-            animation: steamFloat 3s ease-in-out infinite;
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
         }
 
-        .hero h1 {
-            font-family: var(--font-heading);
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--accent-dark);
-            margin-bottom: 8px;
-            letter-spacing: 0.03em;
-            line-height: 1.3;
-            transition: color var(--transition);
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
         }
 
-        .hero .tagline {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 20px;
-            line-height: 1.7;
-        }
-
-        .hero .ornament {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            color: var(--accent-light);
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-        }
-        .hero .ornament .line {
-            width: 50px;
-            height: 1px;
-            background: var(--accent-light);
-            border-radius: 1px;
-        }
-
-        /* ===== CATEGORIES GRID ===== */
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            text-align: center;
-            color: var(--accent-dark);
-            margin: 40px 0 30px;
-            position: relative;
-            transition: color var(--transition);
-        }
-        .section-title::after {
-            content: '☕';
-            display: block;
-            font-size: 1rem;
-            margin-top: 6px;
-            opacity: 0.6;
-        }
-
-        .categories-grid {
+        /* Specialties Grid */
+        .specialties-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
-        .category-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 28px 22px;
-            text-align: center;
-            cursor: pointer;
-            transition: all var(--transition);
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .category-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-light);
-        }
-
-        .category-card .card-icon {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 12px;
-            transition: transform var(--transition);
-        }
-        .category-card:hover .card-icon {
-            transform: scale(1.15);
-        }
-
-        .category-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.15rem;
-            color: var(--accent);
-            margin-bottom: 6px;
-            transition: color var(--transition);
-        }
-
-        .category-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .category-card .card-badge {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 4px 12px;
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            transition: all var(--transition);
-        }
-        .category-card:hover .card-badge {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        /* Coffee bean decoration on cards */
-        .category-card::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--accent-light);
-            opacity: 0;
-            transition: all var(--transition);
-            z-index: 0;
-        }
-        .category-card:hover::before {
-            opacity: 0.06;
-            top: -10px;
-            right: -10px;
-            width: 80px;
-            height: 80px;
-        }
-
-        /* ===== BLOG POSTS ===== */
-        .posts-section {
-            margin-bottom: 50px;
-        }
-
-        .post-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px 28px;
-            margin-bottom: 18px;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition);
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
             cursor: pointer;
             position: relative;
             overflow: hidden;
         }
-        .post-card:hover {
-            box-shadow: var(--shadow);
-            border-color: var(--accent-light);
-        }
-        .post-card .post-meta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-        .post-card .post-meta .tag {
-            background: var(--bg-secondary);
-            padding: 3px 10px;
-            border-radius: 14px;
-            font-size: 0.75rem;
-            transition: all var(--transition);
-        }
-        .post-card:hover .post-meta .tag {
-            background: var(--accent);
-            color: #fff;
-        }
-        .post-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin-bottom: 6px;
-            transition: color var(--transition);
-        }
-        .post-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .post-card .read-more {
-            display: inline-block;
-            margin-top: 10px;
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: all var(--transition);
-        }
-        .post-card .read-more:hover {
-            letter-spacing: 0.02em;
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent-color);
         }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--border-light);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 30px;
-            transition: all var(--transition);
+        .card i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: block;
         }
-        .footer .footer-ornament {
-            font-size: 1.4rem;
+
+        .card h3 {
+            font-size: 1.5rem;
             margin-bottom: 10px;
-            opacity: 0.7;
-        }
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
+            color: var(--accent-color);
         }
 
-        /* ===== SCROLL TO TOP ===== */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow);
-            transition: all var(--transition);
-            opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
-        }
-        .scroll-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        .scroll-top:hover {
-            background: var(--accent-dark);
-            transform: translateY(-3px);
+        /* Post Item (For editing simulation) */
+        .post-list {
+            margin-top: 40px;
         }
 
-        /* ===== RESPONSIVE ===== */
+        .post-item {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+        }
+
+        .coffee-icon {
+            font-size: 1.5rem;
+            color: #6f4e37;
+            margin-bottom: 10px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero .tagline {
-                font-size: 1rem;
-            }
-            .categories-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 14px;
-            }
-            .category-card {
-                padding: 20px 14px;
-            }
-            .category-card h3 {
-                font-size: 1rem;
-            }
-            .nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                left: 0;
-                background: var(--overlay);
-                backdrop-filter: blur(16px);
-                flex-direction: column;
-                padding: 16px;
-                border-bottom: 1px solid var(--border);
-                gap: 4px;
-                box-shadow: var(--shadow-lg);
-                border-radius: 0 0 var(--radius) var(--radius);
-            }
-            .nav.open {
-                display: flex;
-            }
-            .nav a {
-                display: block;
-                text-align: center;
-                padding: 12px;
-                border-radius: var(--radius-sm);
-            }
-            .menu-btn {
-                display: block;
-            }
-            .header .container {
-                flex-wrap: nowrap;
-            }
-            .section-title {
-                font-size: 1.4rem;
-            }
-            .post-card {
-                padding: 18px 16px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .categories-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .category-card {
-                padding: 16px 10px;
-            }
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-            .logo {
-                font-size: 1.1rem;
-            }
-            .logo .coffee-cup {
-                width: 32px;
-                height: 32px;
-                font-size: 1.3rem;
-            }
-        }
-
-        /* Smooth page transitions */
-        .fade-in {
-            animation: fadeIn 0.6s ease forwards;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            .hero-title { font-size: 2rem; }
+            nav { gap: 10px; }
+            nav a { padding: 5px 10px; font-size: 0.9rem; }
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
-    <!-- HEADER -->
-    <header class="header" id="header">
+    <button class="theme-toggle" onclick="toggleTheme()" title="تغيير الوضع">
+        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+
+    <header>
         <div class="container">
-            <a href="#" class="logo" aria-label="الرئيسية">
-                <span class="
+            <div class="logo heritage-font">مدونة الأَصَالة</div>
+            <div class="subtitle">بين محابر الفقهاء ومختبرات العصر</div>
+            <nav>
+                <a href="#" class="active" onclick="showSection('home', event)">الرئيسية</a>
+                <a href="#" onclick="showSection('feqh', event)">الفقه والأصول</a>
+                <a href="#" onclick="showSection('science', event)">العلوم والمجتمع</a>
+                <a href="#" onclick="showSection('med', event)">الطب والصيدلة</a>
+                <a href="#" onclick="showSection('about', event)">عني</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1 class="hero-title">مزيج من التراث والحداثة</h1>
+                <p class="hero-desc">هنا نناقش الفقه بروح اقتصادية، والطب بعين فقهية، والاجتماع بقلب تراثي.. مع رشفة قهوة تعيد ترتيب الأفكار.</p>
+            </div>
+
+            <div class="specialties-grid">
+                <div class="card" onclick="showSection('feqh', event)">
+                    <div class="heritage-font">⚖️</div>
+                    <h3>الفقه الحنبلي وأصوله</h3>
+                    <p>تحقيقات فقهية معاصرة في المذهب الحنبلي، وتطبيقات أصولية حديثة.</p>
+                </div>
+                <div class="card" onclick="showSection('feqh', event)">
+                    <div class="heritage-font">🎯</div>
+                    <h3>مقاصد الشريعة</h3>
+                    <p>فهم مرامي التشريع وربطها بالواقع المتغير لتحقيق المصالح.</p>
+                </div>
+                <div class="card" onclick="showSection('science', event)">
+                    <div class="heritage-font">📈</div>
+                    <h3>الاقتصاد الإسلامي</h3>
+                    <p>تحليل النظم المالية برؤية شرعية تواكب تحديات العصر الرقمي.</p>
+                </div>
+                <div class="card" onclick="showSection('science', event)">
+                    <div class="heritage-font">🧠</div>
+                    <h3>علم النفس والاجتماع</h3>
+                    <p>دراسة النفس البشرية والمجتمعات في ضوء الوحي والتجربة الإنسانية.</p>
+                </div>
+                <div class="card" onclick="showSection('med', event)">
+                    <div class="heritage-font">🧪</div>
+                    <h3>الصيدلة والطب</h3>
+                    <p>تكامل العلوم التجريبية مع الأخلاقيات الطبية والشرعية.</p>
+                </div>
+                <div class="card">
+                    <div class="heritage-font">☕</div>
+                    <h3>زاوية القهوة</h3>
+                    <p>تأملات حرة حول القهوة، الفن، والجمال في تفاصيل الحياة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feqh Section -->
+        <section id="feqh" class="section">
+            <h2 class="hero-title">الفقه والأصول</h2>
+            <div class="post-list">
+                <div class="post-item">
+                    <div class="post-meta">١٨ يوليو ٢٠٢٦ | الفقه الحنبلي</div>
+                    <h3 class="heritage-font">تحرير القول في المسائل المستجدة</h3>
+                    <p>نظرة فاحصة في كيفية التعامل مع النوازل الفقهية من منظور حنبلي أصيل...</p>
+                </div>
+                <div class="post-item">
+                    <div class="post-meta">١٥ يوليو ٢٠٢٦ | مقاصد الشريعة</div>
+                    <h3 class="heritage-font">المقاصد في زمن الذكاء الاصطناعي</h3>
+                    <p>كيف يمكن للمقاصد أن توجه الابتكار التكنولوجي نحو خير البشرية؟</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Science Section -->
+        <section id="science" class="section">
+            <h2 class="hero-title">العلوم والمجتمع</h2>
+            <div class="post-list">
+                <div class="post-item">
+                    <div class="post-meta">١٠ يوليو ٢٠٢٦ | الاقتصاد</div>
+                    <h3 class="heritage-font">مستقبل العملات الرقمية</h3>
+                    <p>تحليل اقتصادي اجتماعي لظاهرة العملات المشفرة وتأثيرها على العدالة المالية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medicine Section -->
+        <section id="med" class="section">
+            <h2 class="hero-title">الطب والصيدلة</h2>
+            <div class="post-list">
+                <div class="post-item">
+                    <div class="post-meta">٥ يوليو ٢٠٢٦ | الصيدلة</div>
+                    <h3 class="heritage-font">أخلاقيات الدواء في الفكر الإسلامي</h3>
+                    <p>بين البحث العلمي والمصلحة الشرعية، أين يقف الصيدلي اليوم؟</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="hero-title">عن صاحب المدونة</h2>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p>باحث يجمع بين عمق التراث الفقهي وآفاق العلوم العصرية. أؤمن أن الأصالة لا تعني الجمود، وأن المعاصرة لا تعني الانسلاخ.</p>
+                <p style="margin-top: 20px;">تخصصاتي تتراوح بين الفقه الحنبلي وأصوله، إلى الاقتصاد والطب، يجمعها خيط واحد هو البحث عن الحقيقة وخدمة الإنسان.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="coffee-icon">☕</div>
+            <p class="heritage-font">مدونة الأَصَالة - ٢٠٢٦</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">صُنعت بروح تجمع بين المحبرة والشاشة</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.innerHTML = '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+            }
+        }
+
+        function showSection(sectionId, event) {
+            if (event) event.preventDefault();
+            
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            
+            // Show target section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav links
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
