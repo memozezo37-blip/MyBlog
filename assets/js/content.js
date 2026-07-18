@@ -15,10 +15,10 @@ const SITE = {
   name: "سُلافة",
   tagline: "فقه · مقاصد · إنسان",
   author: "أحمد زين العابدين", // ← غيّر اسمك هنا
-  email: "", // اختياري: memozezo37@gmail.com
-  telegram: "", // اختياري: https://t.me/Ahmed_zain95
-  facebook: "", // اختياري: https://web.facebook.com/ahmed.zin2
-  facebook: "", // اختياري: https://x.com/ahmad_zin
+  email: "memozezo37@gmail.com", // اختياري: 
+  telegram: "https://t.me/Ahmed_zain95", // اختياري: 
+  facebook: "https://web.facebook.com/ahmed.zin2", // اختياري: 
+  facebook: "https://x.com/ahmad_zin", // اختياري: 
 
   /** نص الصفحة الرئيسية */
   hero: {
