@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة الفقيه العصري | الأصالة والتجديد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfcf8;
+            --text-color: #2c2c2c;
+            --accent-color: #8b5e3c; /* لون القهوة/الخشب التراثي */
+            --secondary-color: #5d6d7e;
+            --card-bg: #ffffff;
+            --border-color: #e0d7c6;
+            --header-font: 'Amiri', serif;
+            --body-font: 'Noto+Kufi+Arabic', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --accent-color: #d4a373;
+            --secondary-color: #aeb6bf;
+            --card-bg: #2d2d2d;
+            --border-color: #404040;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--body-font);
+            line-height: 1.8;
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        /* زخرفة تراثية بسيطة */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), transparent, var(--accent-color));
+            z-index: 1000;
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo h1 {
+            font-family: var(--header-font);
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .logo p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            padding: 1rem;
+            z-index: 900;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .intro-text h2 {
+            font-family: var(--header-font);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .category-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .category-tag:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-card::before {
+            content: "☕";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.2rem;
+            opacity: 0.2;
+        }
+
+        .post-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .post-meta {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .post-title {
+            font-family: var(--header-font);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .post-excerpt {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* نمط التحرير السريع - مخفي افتراضياً */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 2px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 2000;
+            width: 300px;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        button.admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--body-font);
+            font-size: 0.8rem;
+            z-index: 2000;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            color: var(--text-color);
+            border-radius: 5px;
+            font-family: var(--body-font);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+            .logo h1 {
+                font-size: 2.5rem;
+            }
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>مِداد الفقيه</h1>
+            <p>بين أصالة الحنابلة وآفاق العصر</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#heritage">التراث</a>
+        <a href="#modern">العصر</a>
+        <a href="#coffee">ركن القهوة</a>
+        <button class="theme-toggle" id="theme-toggle" title="تبديل الإضاءة">
+            🌙
+        </button>
+    </nav>
+
+    <main>
+        <section class="hero-section" id="home">
+            <div class="intro-text">
+                <h2>حيث يلتقي النص بالواقع</h2>
+                <p>هنا مساحة للتأمل في فقه الإمام أحمد، وسبر أغوار المقاصد، وتحليل النفس والاجتماع، ومقاربة الاقتصاد والطب بعين الأصالة وروح العصر.</p>
+                <div class="categories">
+                    <div class="category-tag">الفقه الحنبلي</div>
+                    <div class="category-tag">أصول الفقه</div>
+                    <div class="category-tag">مقاصد الشريعة</div>
+                    <div class="category-tag">علم الاجتماع</div>
+                    <div class="category-tag">علم النفس</div>
+                    <div class="category-tag">الاقتصاد الإسلامي</div>
+                    <div class="category-tag">الصيدلة والطب</div>
+                </div>
+            </div>
+            <div class="intro-image">
+                <!-- صورة تعبيرية بسيطة أو زخرفة -->
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#8b5e3c" opacity="0.1" d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.7,86.2,-0.5C85.3,14.6,80.1,29.3,71.8,41.7C63.5,54.1,52.1,64.2,38.9,71.4C25.7,78.6,10.7,82.9,-4,89.8C-18.7,96.7,-37.4,106.3,-51.6,101.3C-65.8,96.3,-75.5,76.7,-82.4,59.3C-89.3,41.9,-93.4,26.7,-93.8,11.4C-94.2,-3.9,-90.9,-19.3,-83.4,-33.1C-75.9,-46.9,-64.2,-59.1,-50.3,-66.1C-36.4,-73.1,-20.3,-74.9,-3.3,-69.2C13.7,-63.5,27.4,-50.3,44.7,-76.4Z" transform="translate(100 100)" />
+                </svg>
+            </div>
+        </section>
+
+        <section class="posts-grid" id="posts-container">
+            <!-- تدوينة نموذجية 1 -->
+            <article class="post-card" data-category="jurisprudence">
+                <div class="post-meta">
+                    <span>18 يوليو 2026</span>
+                    <span>•</span>
+                    <span>الفقه الحنبلي</span>
+                </div>
+                <h3 class="post-title">تحرير المذهب في النوازل المعاصرة</h3>
+                <p class="post-excerpt">تأملات في كيفية استصحاب أصول الإمام أحمد في فهم المعاملات المالية الرقمية الحديثة، وكيف يمكن للمذهب أن يقدم حلولاً مرنة ومنضبطة في آن واحد.</p>
+                <a href="#" class="read-more">أكمل القراءة ←</a>
+            </article>
+
+            <!-- تدوينة نموذجية 2 -->
+            <article class="post-card" data-category="medicine">
+                <div class="post-meta">
+                    <span>15 يوليو 2026</span>
+                    <span>•</span>
+                    <span>الصيدلة والطب</span>
+                </div>
+                <h3 class="post-title">أخلاقيات الدواء بين الطب والمقاصد</h3>
+                <p class="post-excerpt">دراسة في تقاطع علم الصيدلة الحديث مع مقاصد الشريعة الخمس، وكيف يساهم حفظ النفس في توجيه البحث العلمي الطبي.</p>
+                <a href="#" class="read-more">أكمل القراءة ←</a>
+            </article>
+
+            <!-- تدوينة نموذجية 3 -->
+            <article class="post-card" data-category="coffee">
+                <div class="post-meta">
+                    <span>10 يوليو 2026</span>
+                    <span>•</span>
+                    <span>استراحة قهوة</span>
+                </div>
+                <h3 class="post-title">فلسفة القهوة عند الفقهاء</h3>
+                <p class="post-excerpt">عن تلك اللحظات التي يمتزج فيها عبق البن برائحة الورق العتيق، وكيف كانت القهوة رفيقة السهر في طلب العلم.</p>
+                <a href="#" class="read-more">أكمل القراءة ←</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 | مدونة الفقيه العصري</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">صُممت بعناية لتجمع بين التراث والحداثة</p>
+    </footer>
+
+    <!-- لوحة التحكم البسيطة -->
+    <button class="admin-toggle" onclick="toggleAdmin()">إدارة المحتوى</button>
+    
+    <div class="admin-panel" id="admin-panel">
+        <h4 style="margin-bottom: 1rem; border-bottom: 1px solid var(--accent-color);">إضافة تدوينة جديدة</h4>
+        <input type="text" id="post-title-input" placeholder="عنوان التدوينة">
+        <input type="text" id="post-cat-input" placeholder="التصنيف (مثلاً: علم النفس)">
+        <textarea id="post-content-input" rows="4" placeholder="مختصر التدوينة"></textarea>
+        <button onclick="addPost()" style="width: 100%; background: var(--accent-color); color: white; border: none; padding: 0.5rem; border-radius: 5px; cursor: pointer;">نشر الآن</button>
+    </div>
+
+    <script>
+        // تبديل النمط (فاتح/داكن)
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                body.removeAttribute('data-theme');
+                themeToggle.innerHTML = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // استعادة النمط المفضل
+        if (localStorage.getItem('theme') === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '☀️';
+        }
+
+        // إظهار/إخفاء لوحة الإدارة
+        function toggleAdmin() {
+            const panel = document.getElementById('admin-panel');
+            panel.classList.toggle('active');
+        }
+
+        // إضافة تدوينة (محاكاة إضافة للمتصفح الحالي)
+        function addPost() {
+            const title = document.getElementById('post-title-input').value;
+            const cat = document.getElementById('post-cat-input').value;
+            const content = document.getElementById('post-content-input').value;
+
+            if (!title || !cat || !content) {
+                alert('يرجى ملء جميع الحقول');
+                return;
+            }
+
+            const container = document.getElementById('posts-container');
+            const date = new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            const postHTML = `
+                <article class="post-card">
+                    <div class="post-meta">
+                        <span>${date}</span>
+                        <span>•</span>
+                        <span>${cat}</span>
+                    </div>
+                    <h3 class="post-title">${title}</h3>
+                    <p class="post-excerpt">${content}</p>
+                    <a href="#" class="read-more">أكمل القراءة ←</a>
+                </article>
+            `;
+
+            container.insertAdjacentHTML('afterbegin', postHTML);
+            
+            // مسح الحقول وإغلاق اللوحة
+            document.getElementById('post-title-input').value = '';
+            document.getElementById('post-cat-input').value = '';
+            document.getElementById('post-content-input').value = '';
+            toggleAdmin();
+
+            // ملاحظة: في النسخة الحقيقية، يجب حفظ هذه البيانات في قاعدة بيانات أو ملف JSON
+            // هنا قمنا بمحاكاة الإضافة في الصفحة الحالية
+        }
+
+        // تنعيم التنقل بين الروابط
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
