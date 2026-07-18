@@ -1,406 +1,939 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زين الفقه | أصالة وعصر</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap');
-        
-        :root {
-            --primary: #1e3a8a;
-            --accent: #b45309;
-        }
-        
-        .dark {
-            --primary: #60a5fa;
-            --accent: #fbbf24;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        
-        .arabic-title {
-            font-family: 'Amiri', serif;
-        }
-        
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/id/1015/1920/1080');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
-        
-        .card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        
-        .islamic-pattern {
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(180, 83, 9, 0.1) 2%, transparent 3%),
-                radial-gradient(circle at 75% 75%, rgba(30, 58, 138, 0.1) 2%, transparent 3%);
-            background-size: 60px 60px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مدونة أحمد زين</title>
+  <meta name="description" content="مدونة شخصية تجمع بين الفقه الحنبلي وأصول الفقه ومقاصد الشريعة والاقتصاد الإسلامي وعلم النفس والاجتماع والصيدلة والطب بروح تراثية عصرية." />
+  <meta property="og:title" content="مدونة أحمد زين" />
+  <meta property="og:description" content="منصة شخصية للكتابة في الفقه والشريعة والاقتصاد الإسلامي وعلم النفس والاجتماع والطب." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.4rem, 1rem + 4vw, 4.5rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+
+      --color-bg: #f7f2ea;
+      --color-surface: #fcfaf6;
+      --color-surface-2: #f2ece3;
+      --color-surface-offset: #eae1d4;
+      --color-surface-dynamic: #ddd2c2;
+      --color-border: #d2c4b2;
+      --color-divider: #e0d5c7;
+      --color-text: #231d16;
+      --color-text-muted: #695f54;
+      --color-text-faint: #a19384;
+      --color-text-inverse: #fffdf9;
+      --color-primary: #6c4b2a;
+      --color-primary-hover: #563a20;
+      --color-primary-active: #422a15;
+      --color-primary-highlight: #e8d9c5;
+      --color-secondary: #0f5c61;
+      --color-accent: #a47a2d;
+      --shadow-sm: 0 1px 2px rgba(35,29,22,0.08);
+      --shadow-md: 0 8px 24px rgba(35,29,22,0.08);
+      --shadow-lg: 0 18px 48px rgba(35,29,22,0.12);
+      --radius-sm: 0.5rem;
+      --radius-md: 0.9rem;
+      --radius-lg: 1.25rem;
+      --radius-xl: 1.75rem;
+      --radius-full: 9999px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --font-display: 'Amiri', serif;
+      --font-body: 'IBM Plex Sans Arabic', sans-serif;
+      --content-default: 1120px;
+      --content-wide: 1280px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171411;
+      --color-surface: #1d1915;
+      --color-surface-2: #26211c;
+      --color-surface-offset: #302820;
+      --color-surface-dynamic: #3b3127;
+      --color-border: #4e4338;
+      --color-divider: #3a322a;
+      --color-text: #efe5d7;
+      --color-text-muted: #c1b29d;
+      --color-text-faint: #8f7f6c;
+      --color-text-inverse: #1a1612;
+      --color-primary: #c59b5d;
+      --color-primary-hover: #d1aa70;
+      --color-primary-active: #e3be88;
+      --color-primary-highlight: #443321;
+      --color-secondary: #73b3b5;
+      --color-accent: #dbbb6b;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.24);
+      --shadow-md: 0 10px 28px rgba(0,0,0,0.28);
+      --shadow-lg: 0 20px 56px rgba(0,0,0,0.34);
+    }
+
+    * , *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.8;
+      color: var(--color-text);
+      background:
+        radial-gradient(circle at top right, rgba(164,122,45,0.10), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(15,92,97,0.08), transparent 24%),
+        var(--color-bg);
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button {
+      font: inherit;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    :focus-visible {
+      outline: 2px solid var(--color-secondary);
+      outline-offset: 4px;
+      border-radius: var(--radius-sm);
+    }
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      right: var(--space-4);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-full);
+      z-index: 100;
+    }
+    .skip-link:focus { top: var(--space-4); }
+    .shell {
+      width: min(calc(100% - 2rem), var(--content-wide));
+      margin-inline: auto;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--color-bg) 84%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      min-width: 0;
+    }
+    .brand-mark {
+      width: 3rem;
+      height: 3rem;
+      padding: 0.35rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(145deg, var(--color-surface), var(--color-surface-2));
+      border: 1px solid color-mix(in srgb, var(--color-primary) 20%, var(--color-border));
+      box-shadow: var(--shadow-sm);
+      color: var(--color-primary);
+      flex: 0 0 auto;
+    }
+    .brand-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      line-height: 1.1;
+      font-weight: 700;
+    }
+    .brand-text span {
+      display: block;
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-2);
+      justify-content: flex-end;
+    }
+    .nav a {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav a:hover,
+    .nav a.active {
+      color: var(--color-primary);
+      background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    }
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      display: inline-grid;
+      place-items: center;
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+      box-shadow: var(--shadow-sm);
+      flex: 0 0 auto;
+    }
+    .hero {
+      padding: clamp(var(--space-12), 8vw, var(--space-24)) 0 var(--space-12);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 0.5rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      margin-bottom: var(--space-4);
+    }
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      margin: 0;
+      line-height: 1.18;
+    }
+    h1 {
+      font-size: var(--text-3xl);
+      max-width: 12ch;
+      margin-bottom: var(--space-5);
+    }
+    .hero p {
+      margin: 0 0 var(--space-6);
+      color: var(--color-text-muted);
+      max-width: 64ch;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: 0.85rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      transition: transform var(--transition-interactive), background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary {
+      border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+    .stat {
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-sm);
+    }
+    .stat strong {
+      display: block;
+      font-size: var(--text-lg);
+      color: var(--color-primary);
+      margin-bottom: var(--space-1);
+    }
+    .stat span {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    .hero-panel {
+      position: relative;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 88%, transparent), var(--color-surface-2));
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 34%),
+        repeating-linear-gradient(90deg, transparent 0 38px, color-mix(in srgb, var(--color-accent) 7%, transparent) 38px 39px);
+      opacity: 0.7;
+      z-index: -1;
+    }
+    .seal {
+      width: 88px;
+      height: 88px;
+      margin-bottom: var(--space-5);
+      color: var(--color-primary);
+    }
+    .hero-panel h2 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-4);
+    }
+    .hero-panel p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .tag {
+      padding: 0.55rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 14%, transparent);
+    }
+    .section {
+      padding: clamp(var(--space-10), 7vw, var(--space-20)) 0;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    .section-head p {
+      margin: var(--space-2) 0 0;
+      color: var(--color-text-muted);
+      max-width: 60ch;
+    }
+    .section h2 { font-size: var(--text-2xl); }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-4);
+    }
+    .topic-card {
+      grid-column: span 4;
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .topic-card.featured { grid-column: span 6; }
+    .topic-card::after {
+      content: "";
+      position: absolute;
+      inset-inline-start: 0;
+      top: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      opacity: 0.6;
+    }
+    .topic-index {
+      color: var(--color-text-faint);
+      font-size: var(--text-xs);
+      margin-bottom: var(--space-4);
+      display: inline-block;
+    }
+    .topic-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-3);
+    }
+    .topic-card p {
+      margin: 0 0 var(--space-4);
+      color: var(--color-text-muted);
+    }
+    .topic-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--space-2);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+    }
+    .topic-card li::before {
+      content: "—";
+      color: var(--color-accent);
+      margin-inline-end: 0.5rem;
+    }
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    .panel {
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+    .panel h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-4);
+    }
+    .panel p { color: var(--color-text-muted); margin: 0 0 var(--space-4); }
+    .route-list, .principles, .archive-list {
+      display: grid;
+      gap: var(--space-3);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .route-list a, .archive-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-3);
+      min-height: 52px;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-lg);
+      background: color-mix(in srgb, var(--color-surface-2) 72%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+    }
+    .route-list a:hover, .archive-link:hover {
+      border-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+      color: var(--color-primary);
+    }
+    .archive-link small { color: var(--color-text-faint); }
+    .principles li {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: color-mix(in srgb, var(--color-secondary) 8%, var(--color-surface));
+      border: 1px solid color-mix(in srgb, var(--color-secondary) 12%, transparent);
+    }
+    .principles strong {
+      display: block;
+      margin-bottom: var(--space-2);
+      color: var(--color-secondary);
+    }
+    .writing-ribbon {
+      margin-top: var(--space-6);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 12%, var(--color-surface)), color-mix(in srgb, var(--color-secondary) 10%, var(--color-surface)));
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+    .writing-ribbon h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-3);
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+    .tool-card {
+      padding: var(--space-5);
+      border-radius: var(--radius-xl);
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+    .tool-card h3 { font-size: var(--text-lg); margin-bottom: var(--space-3); }
+    .tool-card p { margin: 0; color: var(--color-text-muted); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-6);
+    }
+    .quote-box {
+      display: grid;
+      gap: var(--space-4);
+      align-content: start;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 90%, transparent), color-mix(in srgb, var(--color-primary) 6%, var(--color-surface-2)));
+    }
+    .quote-box blockquote {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.45;
+      color: var(--color-primary);
+    }
+    .quote-box cite {
+      font-style: normal;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+    .footer {
+      padding: var(--space-10) 0 var(--space-8);
+      border-top: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-4);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .footer p {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .footer-links a {
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+      font-size: var(--text-sm);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-links a:hover { color: var(--color-primary); }
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+    [data-reveal].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .layout-grid,
+      .about-grid,
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+      .topics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .topic-card, .topic-card.featured { grid-column: auto; }
+      .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(calc(100% - 1rem), var(--content-wide)); }
+      .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-wrap {
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .nav {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.25rem;
+      }
+      .hero-stats,
+      .topics-grid,
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-head,
+      .footer-inner {
+        align-items: start;
+        flex-direction: column;
+      }
+      h1 { max-width: none; }
+      .hero-panel { padding: var(--space-5); }
+      .panel, .tool-card, .topic-card { padding: var(--space-4); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-<body class="bg-amber-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
-    <!-- Navbar -->
-    <nav class="bg-white dark:bg-slate-900 border-b border-amber-200 dark:border-slate-700 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-gradient-to-br from-amber-800 to-blue-900 rounded-2xl flex items-center justify-center text-white text-2xl shadow-inner">ﷺ</div>
-                <div>
-                    <h1 class="arabic-title text-2xl font-bold tracking-tight">زين الفقه</h1>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 -mt-1">أصالة • عصر</p>
-                </div>
-            </div>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#home" class="nav-link">الرئيسية</a>
-                <a href="#about" class="nav-link">عني</a>
-                <a href="#topics" class="nav-link">المواضيع</a>
-                <a href="#blog" class="nav-link">المدونة</a>
-                <a href="#contact" class="nav-link">اتصل</a>
-            </div>
-            
-            <div class="flex items-center gap-4">
-                <button onclick="toggleTheme()" 
-                        class="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 transition-colors">
-                    <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
-                </button>
-                <a href="#" 
-                   class="px-6 py-3 bg-gradient-to-r from-blue-700 to-amber-800 text-white rounded-2xl text-sm font-semibold flex items-center gap-2 hover:shadow-lg transition-all">
-                    <i class="fa-solid fa-coffee"></i>
-                    <span>قهوتي</span>
-                </a>
-            </div>
-        </div>
-    </nav>
+<body>
+  <a class="skip-link" href="#content">تجاوز إلى المحتوى</a>
 
-    <!-- Hero -->
-    <section id="home" class="hero-bg h-screen flex items-center relative">
-        <div class="max-w-4xl mx-auto px-6 text-center text-white">
-            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-2 rounded-3xl mb-8">
-                <i class="fa-solid fa-book-open text-amber-300"></i>
-                <span class="text-sm tracking-widest">فقه • أصول • مقاصد</span>
-            </div>
-            
-            <h1 class="arabic-title text-7xl md:text-8xl font-bold leading-none mb-6 tracking-tighter">
-                زين الفقه<br>في عصرنا
-            </h1>
-            <p class="max-w-md mx-auto text-xl md:text-2xl opacity-90 mb-12">
-                حيث تلتقي الأصالة التراثية بالعصرية الانسيابية<br>
-                في رحلة معرفية تجمع الشريعة بعلوم الحياة
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#blog" 
-                   class="px-10 py-4 bg-white text-slate-900 rounded-3xl font-semibold text-lg inline-flex items-center justify-center gap-3 hover:scale-105 transition-transform">
-                    اقرأ المقالات
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-                <a href="#about" 
-                   class="px-10 py-4 border-2 border-white/80 hover:border-white rounded-3xl font-medium text-lg inline-flex items-center justify-center gap-3 transition-all">
-                    تعرف عليّ
-                </a>
-            </div>
+  <header class="header">
+    <div class="shell header-inner">
+      <div class="brand" aria-label="هوية المدونة">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M18 11H46V53H18V11Z" stroke="currentColor" stroke-width="2.4"/>
+          <path d="M24 18H40" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M24 26H40" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M24 34H34" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M16 53H48" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M32 7L36 11H28L32 7Z" fill="currentColor"/>
+          <circle cx="42" cy="40" r="7" stroke="currentColor" stroke-width="2.4"/>
+          <path d="M42 36.5V40.5L44.8 42.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="brand-text">
+          <strong>مدونة أحمد زين</strong>
+          <span>فقه، أصول، شريعة، اقتصاد، نفس، اجتماع، طب، وقهوة</span>
         </div>
-        
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
-            <span class="text-xs tracking-widest">اكتشف</span>
-            <i class="fa-solid fa-chevron-down animate-bounce"></i>
+      </div>
+
+      <div class="nav-wrap">
+        <nav class="nav" aria-label="التنقل الرئيسي">
+          <a href="#home" class="active">الرئيسية</a>
+          <a href="#topics">التخصصات</a>
+          <a href="#structure">بنية التصفح</a>
+          <a href="#writing">منهج الكتابة</a>
+          <a href="#about">عني</a>
+        </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="تبديل الوضع الليلي">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section id="home" class="hero">
+      <div class="shell hero-grid">
+        <div data-reveal>
+          <div class="eyebrow">مدونة شخصية بطابع فقهي تراثي وانسياب عصري</div>
+          <h1>مساحة كتابة تجمع بين أصالة الفقه وهدوء الفكر الحديث.</h1>
+          <p>
+            هذا القالب مصمم ليظهر روحك العلمية بوضوح: فقه حنبلي وأصول ومقاصد، مع امتداد طبيعي إلى الاقتصاد الإسلامي، وعلم النفس والاجتماع، والصيدلة والطب، ولمسة شخصية دافئة تشير إلى القهوة بوصفها مزاجًا معرفيًا لا مجرد تفصيل بصري.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#topics">استعراض التخصصات</a>
+            <a class="btn btn-secondary" href="#structure">رؤية البنية الداخلية</a>
+          </div>
+          <div class="hero-stats" aria-label="ملخص محتوى المدونة">
+            <div class="stat"><strong>8</strong><span>مسارات معرفية رئيسية</span></div>
+            <div class="stat"><strong>مرن</strong><span>قابل للتعديل والإضافة داخليًا</span></div>
+            <div class="stat"><strong>فاتح/داكن</strong><span>تحكم بصري مباشر من الزر العلوي</span></div>
+          </div>
         </div>
-        
-        <!-- Coffee subtle -->
-        <div class="absolute bottom-12 right-12 text-amber-300/30 text-9xl rotate-12 hidden lg:block">☕</div>
+
+        <aside class="hero-panel" data-reveal>
+          <svg class="seal" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="60" cy="60" r="48" stroke="currentColor" stroke-width="2.5" stroke-dasharray="4 6"/>
+            <circle cx="60" cy="60" r="35" stroke="currentColor" stroke-width="2"/>
+            <path d="M60 35L65.5 50H82L68.5 59.5L73.5 75L60 65.5L46.5 75L51.5 59.5L38 50H54.5L60 35Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <h2>هوية بصرية مقصودة</h2>
+          <p>
+            الألوان ترابية دافئة مع لمسة حبرية مائلة إلى الوقار، والخط العنواني تراثي رصين، والخط النصي معاصر وسلس، ليخرج الشكل العام من ثنائية جامدة بين التراث والحداثة إلى مزج منظم بينهما.
+          </p>
+          <div class="tag-list" aria-label="سمات المدونة">
+            <span class="tag">أصالة</span>
+            <span class="tag">بساطة</span>
+            <span class="tag">انسياب</span>
+            <span class="tag">تحرير سهل</span>
+            <span class="tag">تصفح واضح</span>
+            <span class="tag">روح أكاديمية</span>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="py-24 bg-white dark:bg-slate-900 islamic-pattern">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-16 items-center">
-                <div class="md:col-span-5">
-                    <div class="sticky top-24">
-                        <div class="inline px-4 py-1.5 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-3xl text-sm mb-6 inline-block">
-                            أحمد زين العابدين
-                        </div>
-                        <h2 class="arabic-title text-6xl font-bold leading-tight mb-8">
-                            باحث في علوم الشريعة<br>وعاشق للمعرفة
-                        </h2>
-                        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-md">
-                            أجمع بين تراث الفقه الحنبلي وأصوله ومقاصد الشريعة، مع نظرة عصرية تستلهم علم الاجتماع وعلم النفس والاقتصاد الإسلامي والطب.
-                        </p>
-                        <div class="flex gap-8 mt-12 text-sm">
-                            <div>
-                                <div class="font-mono text-4xl font-semibold text-amber-700 dark:text-amber-400">١٥+</div>
-                                <div class="text-slate-500">مقالة منشورة</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-4xl font-semibold text-amber-700 dark:text-amber-400">٧</div>
-                                <div class="text-slate-500">تخصصات</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-7">
-                    <div class="prose dark:prose-invert max-w-none text-lg leading-relaxed">
-                        <p class="mb-6">
-                            أنا أحمد زين العابدين، أبحث في أعماق الفقه الحنبلي وأصول الفقه ومقاصد الشريعة، محاولاً بناء جسور بين التراث والحداثة. 
-                            أرى في الشريعة نظاماً كاملاً يحتضن علم النفس والاجتماع والاقتصاد والطب.
-                        </p>
-                        <p>
-                            شغفي بالقهوة يرمز إلى لحظات التأمل والتفكر، حيث تتلاقى الأفكار في هدوء الفجر أو بعد العصر.
-                            هذه المدونة مساحة لمشاركة التأملات، التحليلات، والرؤى التي تجمع بين الأصالة والتجديد.
-                        </p>
-                    </div>
-                    
-                    <!-- Interests -->
-                    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <div class="card bg-slate-50 dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700">
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-2xl flex items-center justify-center text-3xl mb-5">📖</div>
-                            <h4 class="font-semibold mb-1">الفقه الحنبلي</h4>
-                            <p class="text-sm text-slate-500">أصول وفروع</p>
-                        </div>
-                        <div class="card bg-slate-50 dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700">
-                            <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 rounded-2xl flex items-center justify-center text-3xl mb-5">⚖️</div>
-                            <h4 class="font-semibold mb-1">مقاصد الشريعة</h4>
-                            <p class="text-sm text-slate-500">حماية وتكريم</p>
-                        </div>
-                        <div class="card bg-slate-50 dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700">
-                            <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/50 rounded-2xl flex items-center justify-center text-3xl mb-5">🧠</div>
-                            <h4 class="font-semibold mb-1">علم النفس</h4>
-                            <p class="text-sm text-slate-500">والاجتماع</p>
-                        </div>
-                        <div class="card bg-slate-50 dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700">
-                            <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/50 rounded-2xl flex items-center justify-center text-3xl mb-5">💰</div>
-                            <h4 class="font-semibold mb-1">اقتصاد إسلامي</h4>
-                            <p class="text-sm text-slate-500">والصيدلة</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="topics" class="section">
+      <div class="shell">
+        <div class="section-head" data-reveal>
+          <div>
+            <h2>التخصصات</h2>
+            <p>تم توزيعها في بطاقات واضحة لتسهيل تطوير الصفحة لاحقًا، سواء بتحويل كل بطاقة إلى صفحة مستقلة، أو إلى قسم أرشيف داخلي بمقالات وروابط وتصنيفات.</p>
+          </div>
         </div>
+
+        <div class="topics-grid">
+          <article class="topic-card featured" data-reveal>
+            <span class="topic-index">01</span>
+            <h3>الفقه الحنبلي</h3>
+            <p>مساحة للكتابة في المعتمد، والتحرير، والتخريج، ومسائل المعاملات والعبادات، مع حضور واضح للنفس الفقهي المدرسي.</p>
+            <ul>
+              <li>المتون والتحريرات</li>
+              <li>المعاملات والنوازل</li>
+              <li>التقعيد والتطبيق</li>
+            </ul>
+          </article>
+
+          <article class="topic-card featured" data-reveal>
+            <span class="topic-index">02</span>
+            <h3>أصول الفقه</h3>
+            <p>قسم يبرز البناء المنهجي: الأدلة، الدلالات، مسالك الاجتهاد، وصناعة النظر الأصولي في القضايا المعاصرة.</p>
+            <ul>
+              <li>دلالات الألفاظ</li>
+              <li>التعارض والترجيح</li>
+              <li>مناهج الاستنباط</li>
+            </ul>
+          </article>
+
+          <article class="topic-card" data-reveal>
+            <span class="topic-index">03</span>
+            <h3>مقاصد الشريعة</h3>
+            <p>للموازنة بين الكليات والجزئيات، وبين حفظ المعاني وصرامة الضبط العلمي.</p>
+            <ul>
+              <li>فهم الكليات</li>
+              <li>ميزان المصالح</li>
+              <li>الاجتهاد المعاصر</li>
+            </ul>
+          </article>
+
+          <article class="topic-card" data-reveal>
+            <span class="topic-index">04</span>
+            <h3>علم الاجتماع</h3>
+            <p>لقراءة البنى الاجتماعية، والتحولات القيمية، وأثر المؤسسات والسلوك الجمعي على الواقع.</p>
+            <ul>
+              <li>البناء الاجتماعي</li>
+              <li>التحولات القيمية</li>
+              <li>المجتمع والدين</li>
+            </ul>
+          </article>
+
+          <article class="topic-card" data-reveal>
+            <span class="topic-index">05</span>
+            <h3>علم النفس</h3>
+            <p>مساحة تربط بين التحليل النفسي والسلوكي، والوعي المعرفي، والتحيزات، والصحة النفسية.</p>
+            <ul>
+              <li>التحيزات المعرفية</li>
+              <li>الدافعية والانفعال</li>
+              <li>الصحة النفسية</li>
+            </ul>
+          </article>
+
+          <article class="topic-card" data-reveal>
+            <span class="topic-index">06</span>
+            <h3>الاقتصاد الإسلامي</h3>
+            <p>لبحث التمويل، والربا، والزكاة، والبنى الاقتصادية، وفلسفة التبادل والعدالة في المنظور الإسلامي.</p>
+            <ul>
+              <li>التمويل والهياكل</li>
+              <li>فلسفة الاقتصاد</li>
+              <li>النقد والتحليل</li>
+            </ul>
+          </article>
+
+          <article class="topic-card" data-reveal>
+            <span class="topic-index">07</span>
+            <h3>الصيدلة والطب</h3>
+            <p>قسم علمي دقيق للمعلومات الدوائية، وآليات الأدوية، والقراءات الطبية المبنية على الفهم والتحقق.</p>
+            <ul>
+              <li>الدواء وآليته</li>
+              <li>التحليل الطبي</li>
+              <li>تبسيط العلوم الصحية</li>
+            </ul>
+          </article>
+
+          <article class="topic-card" data-reveal>
+            <span class="topic-index">08</span>
+            <h3>القهوة والمزاج المعرفي</h3>
+            <p>ركن خفيف يضيف بعدًا شخصيًا، صالحًا لاقتباسات، هوامش تأملية، أو تدوينات قصيرة بين المقالات الثقيلة.</p>
+            <ul>
+              <li>مقتطفات قصيرة</li>
+              <li>تأملات جانبية</li>
+              <li>إيقاع شخصي</li>
+            </ul>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Topics -->
-    <section id="topics" class="py-24 bg-amber-50 dark:bg-slate-950">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="px-5 py-2 bg-white dark:bg-slate-900 rounded-3xl text-amber-700 dark:text-amber-400 text-sm font-medium">تخصصاتي</span>
-                <h2 class="arabic-title text-5xl font-bold mt-6">مواضيع أكتب عنها</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card group bg-white dark:bg-slate-900 p-8 rounded-3xl border border-transparent hover:border-amber-200 dark:hover:border-slate-700">
-                    <div class="h-2 w-16 bg-gradient-to-r from-blue-600 to-amber-600 rounded mb-8"></div>
-                    <h3 class="text-2xl font-semibold mb-4">الفقه الحنبلي وأصوله</h3>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6">دراسات مقارنة وتطبيقات معاصرة في الأحكام والمنهج.</p>
-                    <a href="#" class="text-amber-700 dark:text-amber-400 group-hover:underline inline-flex items-center gap-2 text-sm">اقرأ المزيد <i class="fa-solid fa-arrow-left"></i></a>
-                </div>
-                
-                <div class="card group bg-white dark:bg-slate-900 p-8 rounded-3xl border border-transparent hover:border-amber-200 dark:hover:border-slate-700">
-                    <div class="h-2 w-16 bg-gradient-to-r from-emerald-600 to-teal-600 rounded mb-8"></div>
-                    <h3 class="text-2xl font-semibold mb-4">مقاصد الشريعة</h3>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6">تفعيل المقاصد في قضايا الأسرة، الاقتصاد، والمجتمع.</p>
-                    <a href="#" class="text-amber-700 dark:text-amber-400 group-hover:underline inline-flex items-center gap-2 text-sm">اقرأ المزيد <i class="fa-solid fa-arrow-left"></i></a>
-                </div>
-                
-                <div class="card group bg-white dark:bg-slate-900 p-8 rounded-3xl border border-transparent hover:border-amber-200 dark:hover:border-slate-700">
-                    <div class="h-2 w-16 bg-gradient-to-r from-purple-600 to-rose-600 rounded mb-8"></div>
-                    <h3 class="text-2xl font-semibold mb-4">العلوم الإنسانية</h3>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6">علم النفس، الاجتماع، الاقتصاد الإسلامي، والطب من منظور شرعي.</p>
-                    <a href="#" class="text-amber-700 dark:text-amber-400 group-hover:underline inline-flex items-center gap-2 text-sm">اقرأ المزيد <i class="fa-solid fa-arrow-left"></i></a>
-                </div>
-            </div>
+    <section id="structure" class="section">
+      <div class="shell layout-grid">
+        <div class="panel" data-reveal>
+          <h3>بنية التصفح</h3>
+          <p>تم بناء الملف كصفحة واحدة ذكية، لكنها مهيأة للانتقال السلس بين أقسامها الآن، ثم يمكن لاحقًا تحويل الأقسام إلى صفحات منفصلة مع الإبقاء على نفس اللغة البصرية.</p>
+          <ul class="route-list">
+            <li><a href="#home"><span>الواجهة الرئيسية</span><span>مدخل بصري وتعريفي</span></a></li>
+            <li><a href="#topics"><span>قسم التخصصات</span><span>بطاقات قابلة للتوسعة</span></a></li>
+            <li><a href="#writing"><span>منهج الكتابة</span><span>طريقة العرض والتحرير</span></a></li>
+            <li><a href="#about"><span>النبذة الشخصية</span><span>تعريف علمي وإنساني</span></a></li>
+          </ul>
         </div>
+
+        <div class="panel" data-reveal>
+          <h3>مبادئ التصميم</h3>
+          <ul class="principles">
+            <li><strong>تراث بلا تزويق زائد</strong> زخارف خفيفة جدًا، مع تجنب الشكل المتحفي الجامد.</li>
+            <li><strong>عصرية بلا برود</strong> مساحات نظيفة، بطاقات واضحة، وحركة هادئة غير متكلفة.</li>
+            <li><strong>سهولة الإدارة</strong> كل قسم مستقل داخل HTML، ويمكنك تعديل النصوص أو إضافة مقاطع جديدة مباشرة.</li>
+            <li><strong>وضوح بصري</strong> تباين مريح، وتسلسل هرمي واضح بين العناوين، المتون، والوصف.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- Recent Blog -->
-    <section id="blog" class="py-24 bg-white dark:bg-slate-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <span class="text-amber-700 dark:text-amber-400">آخر المنشورات</span>
-                    <h2 class="arabic-title text-5xl font-bold">تأملات فقهية عصرية</h2>
-                </div>
-                <a href="#" class="hidden md:flex items-center gap-2 text-sm font-medium group">
-                    جميع المقالات 
-                    <span class="block w-8 h-px bg-current group-hover:w-12 transition-all"></span>
-                </a>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Post 1 -->
-                <article class="card bg-slate-50 dark:bg-slate-800 rounded-3xl overflow-hidden group">
-                    <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/201/600/400')"></div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-3 text-xs mb-4">
-                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-2xl">فقه حنبلي</span>
-                            <span class="text-slate-500">١٥ يوليو ٢٠٢٦</span>
-                        </div>
-                        <h3 class="text-xl font-semibold leading-tight mb-4 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
-                            تطبيق قاعدة المصالح في قانون الأسرة المصري الجديد
-                        </h3>
-                        <p class="line-clamp-3 text-slate-600 dark:text-slate-400 text-[15px]">
-                            قراءة نقدية في ضوء مقاصد الشريعة...
-                        </p>
-                        <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-sm">
-                            <div class="flex items-center gap-2">
-                                <div class="w-7 h-7 bg-amber-200 rounded-full"></div>
-                                <span>أحمد زين</span>
-                            </div>
-                            <span class="text-amber-600 dark:text-amber-400">٨ دقائق قراءة</span>
-                        </div>
-                    </div>
-                </article>
-                
-                <!-- Post 2 -->
-                <article class="card bg-slate-50 dark:bg-slate-800 rounded-3xl overflow-hidden group">
-                    <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/251/600/400')"></div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-3 text-xs mb-4">
-                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-2xl">اقتصاد إسلامي</span>
-                            <span class="text-slate-500">١٠ يوليو ٢٠٢٦</span>
-                        </div>
-                        <h3 class="text-xl font-semibold leading-tight mb-4 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
-                            القهوة والتأمل: رؤية شرعية في عادات الحياة اليومية
-                        </h3>
-                        <p class="line-clamp-3 text-slate-600 dark:text-slate-400 text-[15px]">
-                            كيف يمكن للروتين اليومي أن يكون عبادة...
-                        </p>
-                        <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-sm">
-                            <div class="flex items-center gap-2">
-                                <div class="w-7 h-7 bg-amber-200 rounded-full"></div>
-                                <span>أحمد زين</span>
-                            </div>
-                            <span class="text-amber-600 dark:text-amber-400">١٢ دقيقة قراءة</span>
-                        </div>
-                    </div>
-                </article>
-                
-                <!-- Post 3 -->
-                <article class="card bg-slate-50 dark:bg-slate-800 rounded-3xl overflow-hidden group">
-                    <div class="h-56 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/180/600/400')"></div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-3 text-xs mb-4">
-                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-2xl">علم النفس</span>
-                            <span class="text-slate-500">٥ يوليو ٢٠٢٦</span>
-                        </div>
-                        <h3 class="text-xl font-semibold leading-tight mb-4 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
-                            التوازن النفسي في ضوء الشريعة: دراسة تكاملية
-                        </h3>
-                        <p class="line-clamp-3 text-slate-600 dark:text-slate-400 text-[15px]">
-                            بين علم النفس الحديث وعلاجات القلوب...
-                        </p>
-                        <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-sm">
-                            <div class="flex items-center gap-2">
-                                <div class="w-7 h-7 bg-amber-200 rounded-full"></div>
-                                <span>أحمد زين</span>
-                            </div>
-                            <span class="text-amber-600 dark:text-amber-400">١٠ دقائق قراءة</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
+    <section id="writing" class="section">
+      <div class="shell">
+        <div class="section-head" data-reveal>
+          <div>
+            <h2>منهج الكتابة والتحرير</h2>
+            <p>القالب مهيأ لمدونة جادة لا لواجهة دعائية؛ لذلك تم التركيز على القراءة المريحة، والأرشفة الواضحة، وقابلية التوسع المنظم.</p>
+          </div>
         </div>
+
+        <div class="tools-grid">
+          <article class="tool-card" data-reveal>
+            <h3>مقالات مطولة</h3>
+            <p>مناسب لبحوث فقهية أو أصولية أو اقتصادية تحتاج مقدمة، محاور، نتائج، وهوامش أو إحالات.</p>
+          </article>
+          <article class="tool-card" data-reveal>
+            <h3>مذكرات قصيرة</h3>
+            <p>مناسب للتأملات السريعة، تعليقات على كتب، أو خلاصات مركزة من درس أو قراءة.</p>
+          </article>
+          <article class="tool-card" data-reveal>
+            <h3>ملفات موضوعية</h3>
+            <p>يمكن تجميع المقالات في سلاسل: الربا، المقاصد، الطب النفسي، أو فقه النوازل.</p>
+          </article>
+          <article class="tool-card" data-reveal>
+            <h3>أرشيف منظم</h3>
+            <p>القسم السفلي صالح لإضافة تواريخ، تصنيفات، وروابط داخلية أو خارجية لمشاريعك ومحتواك.</p>
+          </article>
+        </div>
+
+        <div class="writing-ribbon panel" data-reveal>
+          <h3>اقتراح عملي للتعديل الداخلي</h3>
+          <p>أبسط طريقة لتطوير هذا الملف لاحقًا هي تكرار بطاقة موضوع أو مقطع مقالة مع الإبقاء على نفس الفئات البرمجية class، ثم تعديل العنوان والوصف فقط. بهذه الطريقة يبقى الشكل منظمًا حتى لو كثر المحتوى.</p>
+          <ul class="archive-list">
+            <li><a class="archive-link" href="#"><span>أضف مقالًا مميزًا في أعلى الصفحة</span><small>Featured Article</small></a></li>
+            <li><a class="archive-link" href="#"><span>أنشئ قسمًا للأبحاث الطويلة</span><small>Research Essays</small></a></li>
+            <li><a class="archive-link" href="#"><span>أنشئ أرشيفًا شهريًا أو موضوعيًا</span><small>Archive Blocks</small></a></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-slate-900 text-slate-300 py-20">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12">
-            <div class="md:col-span-5">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-10 h-10 bg-gradient-to-br from-amber-700 to-blue-700 rounded-2xl flex items-center justify-center text-white text-3xl">ﷺ</div>
-                    <div class="arabic-title text-3xl font-bold text-white">زين الفقه</div>
-                </div>
-                <p class="max-w-xs text-slate-400">
-                    مدونة شخصية تجمع بين تراث الشريعة وعصرية المعرفة.
-                </p>
-                <div class="mt-12 text-xs opacity-60">
-                    © ٢٠٢٦ أحمد زين العابدين. جميع الحقوق محفوظة.
-                </div>
-            </div>
-            
-            <div class="md:col-span-3">
-                <h4 class="font-semibold text-white mb-6">روابط سريعة</h4>
-                <div class="space-y-3 text-sm">
-                    <a href="#about" class="block hover:text-white transition-colors">عني</a>
-                    <a href="#topics" class="block hover:text-white transition-colors">المواضيع</a>
-                    <a href="#blog" class="block hover:text-white transition-colors">المقالات</a>
-                </div>
-            </div>
-            
-            <div class="md:col-span-4">
-                <h4 class="font-semibold text-white mb-6">ابق على تواصل</h4>
-                <div class="flex gap-4 mb-8">
-                    <a href="https://x.com/ahmad_zin" target="_blank" class="w-11 h-11 border border-slate-700 hover:border-slate-400 rounded-2xl flex items-center justify-center transition-colors">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#" class="w-11 h-11 border border-slate-700 hover:border-slate-400 rounded-2xl flex items-center justify-center transition-colors">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
-                </div>
-                <p class="text-sm text-slate-400">أرحب بملاحظاتكم ومقترحات المواضيع.</p>
-            </div>
+    <section id="about" class="section">
+      <div class="shell about-grid">
+        <div class="panel" data-reveal>
+          <h3>عن صاحب المدونة</h3>
+          <p>هذه المساحة مخصصة لتعريف مختصر رصين: من أنت، ماذا تكتب، وما زاوية نظرك التي تميز هذا الموقع عن غيره. يمكن إبقاؤها مختصرة، لأن العمل الحقيقي يجب أن يظهر في المقالات نفسها.</p>
+          <p>التصميم الحالي يتسع لصياغة شخصية تجمع بين الباحث الشرعي، والمهتم بالاقتصاد الإسلامي، والمشتغل بالصيدلة والطب، والمتابع لعلوم النفس والاجتماع، من غير تشتيت ولا تضخم بصري.</p>
         </div>
-    </footer>
 
-    <script>
-        // Tailwind script already loaded via CDN
-        
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
-            const icon = document.getElementById('theme-icon');
-            if (document.documentElement.classList.contains('dark')) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
+        <aside class="panel quote-box" data-reveal>
+          <blockquote>
+            بين المتن والواقع، وبين التراث والتحليل الحديث، تتشكل كتابة تحترم الأصول ولا تنفصل عن أسئلة العصر.
+          </blockquote>
+          <cite>يمكنك استبدال هذا النص باقتباس شخصي أو تعريف منهجي ثابت للمدونة.</cite>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <p>قالب HTML شخصي قابل للتوسعة، بهوية هادئة ومنظمة، ومناسب لبناء مدونة علمية طويلة النفس.</p>
+      <div class="footer-links">
+        <a href="#home">أعلى الصفحة</a>
+        <a href="#topics">التخصصات</a>
+        <a href="#about">النبذة</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+      function renderTheme() {
+        root.setAttribute('data-theme', theme);
+        if (toggle) {
+          toggle.setAttribute('aria-label', theme === 'dark' ? 'التحويل إلى الوضع الفاتح' : 'التحويل إلى الوضع الداكن');
+          toggle.innerHTML = theme === 'dark'
+            ? '<span aria-hidden="true">☀</span>'
+            : '<span aria-hidden="true">☾</span>';
         }
-        
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
+      }
+
+      renderTheme();
+      toggle?.addEventListener('click', function () {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        renderTheme();
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
         });
-        
-        // Keyboard shortcut for theme toggle (Ctrl/Cmd + K)
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault();
-                toggleTheme();
-            }
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+
+      const links = document.querySelectorAll('.nav a');
+      const sections = [...document.querySelectorAll('main section[id]')];
+      const setActive = () => {
+        const current = sections.find(section => {
+          const rect = section.getBoundingClientRect();
+          return rect.top <= 140 && rect.bottom >= 140;
         });
-        
-        console.log('%cمدونة زين الفقه جاهزة للاستخدام ✨', 'color: #b45309; font-family: monospace');
-    </script>
+        if (!current) return;
+        links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${current.id}`));
+      };
+      window.addEventListener('scroll', setActive, { passive: true });
+      setActive();
+    })();
+  </script>
 </body>
 </html>
