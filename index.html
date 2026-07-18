@@ -1,460 +1,102 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ظلال الفقه - أحمد زين العابدين</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Noto+Sans+Arabic:wght@400;600&amp;display=swap');
-        
-        :root {
-            --primary: #0f766e;
-            --accent: #ca8a04;
-        }
-        
-        .dark {
-            --primary: #14b8a6;
-            --accent: #eab308;
-        }
-        
-        body {
-            font-family: 'Noto Sans Arabic', system-ui, sans-serif;
-        }
-        
-        .heading-font {
-            font-family: 'Amiri', serif;
-        }
-
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1015/1920/1080');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .post-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .post-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-
-        .islamic-pattern {
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(234, 179, 8, 0.1) 2%, transparent 0),
-                radial-gradient(circle at 75% 75%, rgba(234, 179, 8, 0.1) 2%, transparent 0);
-            background-size: 40px 40px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="مدينة الفكر — مدونة شخصية في الفقه الحنبلي وأصول الفقه ومقاصد الشريعة وعلوم الاجتماع والنفس والاقتصاد الإسلامي والصيدلة والطب" />
+  <meta name="theme-color" content="#1b4332" />
+  <title>مدينة الفكر | مدونة فقهية عصرية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>" />
 </head>
-<body class="bg-stone-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-300">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-teal-600 dark:bg-teal-500 rounded-xl flex items-center justify-center text-white text-2xl heading-font shadow-inner">ﷺ</div>
-                <div>
-                    <h1 class="heading-font text-2xl font-bold tracking-tight text-teal-800 dark:text-teal-300">ظلال الفقه</h1>
-                    <p class="text-xs text-neutral-500 dark:text-neutral-400 -mt-1">أحمد زين العابدين</p>
-                </div>
-            </div>
-            
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#home" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-teal-600">الرئيسية</a>
-                <a href="#about" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-teal-600">عني</a>
-                <a href="#blog" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-teal-600">المقالات</a>
-                <a href="#categories" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-teal-600">التصنيفات</a>
-                <a href="#contact" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-teal-600">اتصل</a>
-            </nav>
+<body>
+  <!-- شريط تقدّم القراءة (يظهر في صفحات المقال) -->
+  <div class="read-progress" id="read-progress" aria-hidden="true"></div>
 
-            <div class="flex items-center gap-4">
-                <!-- Coffee icon -->
-                <button onclick="window.location.href='#coffee'" 
-                        class="p-2.5 text-amber-600 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-neutral-800 rounded-xl transition-colors">
-                    <i class="fa-solid fa-mug-hot text-xl"></i>
-                </button>
-                
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" 
-                        class="p-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all">
-                    <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
-                </button>
-                
-                <button onclick="toggleMobileMenu()" 
-                        class="md:hidden p-2.5 text-neutral-600 dark:text-neutral-400">
-                    <i class="fa-solid fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 py-4">
-            <div class="px-6 flex flex-col gap-4 text-lg">
-                <a href="#home" class="nav-link">الرئيسية</a>
-                <a href="#about" class="nav-link">عني</a>
-                <a href="#blog" class="nav-link">المقالات</a>
-                <a href="#categories" class="nav-link">التصنيفات</a>
-                <a href="#contact" class="nav-link">اتصل</a>
-            </div>
-        </div>
-    </header>
+  <!-- زخرفة هندسية خفيفة في الخلفية -->
+  <div class="pattern-bg" aria-hidden="true"></div>
+  <div class="pattern-frame" aria-hidden="true"></div>
 
-    <!-- Hero -->
-    <section id="home" class="hero-bg h-screen flex items-center text-white relative">
-        <div class="max-w-4xl mx-auto px-6 text-center z-10">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl mb-8 border border-white/20">
-                <span class="text-amber-300">☕</span>
-                <span class="text-sm tracking-widest">فقه • عصر • أصالة</span>
-            </div>
-            
-            <h2 class="heading-font text-7xl md:text-8xl font-bold leading-none mb-6 tracking-tighter">
-                ظلال<br>الفقه
-            </h2>
-            <p class="max-w-md mx-auto text-xl md:text-2xl opacity-90 mb-10">
-                رحلة في أعماق الشريعة، معاصرة بالعقل والروح
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#blog" 
-                   class="px-10 py-4 bg-white text-teal-800 rounded-2xl font-semibold hover:bg-amber-300 hover:text-neutral-900 transition-all inline-flex items-center justify-center gap-3 text-lg">
-                    <span>اقرأ المقالات</span>
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-                <a href="#about" 
-                   class="px-10 py-4 border-2 border-white/80 hover:bg-white/10 rounded-2xl font-medium transition-all">
-                    تعرف عليّ
-                </a>
-            </div>
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
-            <div class="w-px h-12 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
-            <i class="fa-solid fa-chevron-down animate-bounce"></i>
-        </div>
-        
-        <!-- Islamic geometric ornament -->
-        <div class="absolute bottom-8 right-8 text-6xl opacity-10 heading-font">ﷺ</div>
-    </section>
+  <!-- شريط التنقل -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#/" class="logo" data-link>
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" opacity=".35"/>
+            <path d="M20 6 L28 14 L20 22 L12 14 Z" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            <path d="M20 18 L26 26 L20 34 L14 26 Z" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            <circle cx="20" cy="20" r="2.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <strong>مدينة الفكر</strong>
+          <small>فقه · مقاصد · إنسان</small>
+        </span>
+      </a>
 
-    <!-- About -->
-    <section id="about" class="py-24 bg-white dark:bg-neutral-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-16 items-center">
-                <div class="md:col-span-5">
-                    <div class="sticky top-24">
-                        <div class="inline-block px-4 py-1 bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 rounded-3xl text-sm mb-6">من أنا</div>
-                        <h2 class="heading-font text-5xl leading-tight font-semibold mb-8">
-                            أحمد زين العابدين<br>
-                            <span class="text-teal-600 dark:text-teal-400">باحث في العلوم الشرعية</span>
-                        </h2>
-                        <div class="prose dark:prose-invert text-lg">
-                            <p>عاشق للفقه الحنبلي وأصوله، أسعى لربط التراث بالواقع المعاصر من خلال مقاصد الشريعة، علم الاجتماع، وعلم النفس. أكتب عن الاقتصاد الإسلامي، والطب، والصيدلة، مع فنجان قهوة يرافق كل فكرة.</p>
-                        </div>
-                        
-                        <div class="mt-12 flex gap-8">
-                            <div>
-                                <div class="text-4xl font-semibold text-teal-600">١٢</div>
-                                <div class="text-sm text-neutral-500">مقال منشور</div>
-                            </div>
-                            <div>
-                                <div class="text-4xl font-semibold text-teal-600">٨</div>
-                                <div class="text-sm text-neutral-500">تصنيفات</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-7">
-                    <div class="islamic-pattern bg-neutral-100 dark:bg-neutral-800 p-10 rounded-3xl border border-amber-200/30">
-                        <div class="grid grid-cols-2 gap-8">
-                            <div class="space-y-6">
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900 rounded-2xl flex items-center justify-center flex-shrink-0">📜</div>
-                                    <div>
-                                        <div class="font-semibold">الفقه الحنبلي</div>
-                                        <div class="text-sm text-neutral-500">الأصالة والدقة</div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-2xl flex items-center justify-center flex-shrink-0">⚖️</div>
-                                    <div>
-                                        <div class="font-semibold">أصول الفقه</div>
-                                        <div class="text-sm text-neutral-500">منهجية الاستنباط</div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-2xl flex items-center justify-center flex-shrink-0">🌱</div>
-                                    <div>
-                                        <div class="font-semibold">مقاصد الشريعة</div>
-                                        <div class="text-sm text-neutral-500">حفظ الدين والنفس</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="space-y-6">
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 bg-rose-100 dark:bg-rose-900 rounded-2xl flex items-center justify-center flex-shrink-0">🧠</div>
-                                    <div>
-                                        <div class="font-semibold">علم النفس</div>
-                                        <div class="text-sm text-neutral-500">فهم النفس البشرية</div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-2xl flex items-center justify-center flex-shrink-0">📊</div>
-                                    <div>
-                                        <div class="font-semibold">الاقتصاد الإسلامي</div>
-                                        <div class="text-sm text-neutral-500">عدل ورفاهية</div>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <div class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900 rounded-2xl flex items-center justify-center flex-shrink-0">🧪</div>
-                                    <div>
-                                        <div class="font-semibold">الطب والصيدلة</div>
-                                        <div class="text-sm text-neutral-500">شفاء من السنة</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-10 text-center">
-                        <a href="#" class="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 hover:underline">
-                            <span>اقرأ سيرتي الذاتية الكاملة</span>
-                            <i class="fa-solid fa-arrow-left"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <nav class="main-nav" id="main-nav" aria-label="القائمة الرئيسية">
+        <a href="#/" data-link class="nav-link" data-page="home">الرئيسية</a>
+        <a href="#/specialties" data-link class="nav-link" data-page="specialties">التخصصات</a>
+        <a href="#/articles" data-link class="nav-link" data-page="articles">المقالات</a>
+        <a href="#/coffee" data-link class="nav-link" data-page="coffee">ركن القهوة</a>
+        <a href="#/about" data-link class="nav-link" data-page="about">عن المدونة</a>
+      </nav>
 
-    <!-- Categories -->
-    <section id="categories" class="py-24 bg-neutral-100 dark:bg-neutral-950">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="heading-font text-5xl font-semibold mb-4">تصنيفاتي</h2>
-                <p class="max-w-md mx-auto text-neutral-600 dark:text-neutral-400">من الفقه التراثي إلى العلوم المعاصرة</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div onclick="filterCategory(this)" data-category="fiqh" class="category-card bg-white dark:bg-neutral-900 p-8 rounded-3xl hover:shadow-xl cursor-pointer transition-all border border-transparent hover:border-teal-200 group">
-                    <div class="text-5xl mb-6">📜</div>
-                    <h3 class="font-semibold text-xl mb-2 group-hover:text-teal-600">الفقه الحنبلي</h3>
-                    <p class="text-sm text-neutral-500">الفروع والتطبيقات</p>
-                </div>
-                <div onclick="filterCategory(this)" data-category="usul" class="category-card bg-white dark:bg-neutral-900 p-8 rounded-3xl hover:shadow-xl cursor-pointer transition-all border border-transparent hover:border-teal-200 group">
-                    <div class="text-5xl mb-6">🧩</div>
-                    <h3 class="font-semibold text-xl mb-2 group-hover:text-teal-600">أصول الفقه</h3>
-                    <p class="text-sm text-neutral-500">المنهج والدليل</p>
-                </div>
-                <div onclick="filterCategory(this)" data-category="maqasid" class="category-card bg-white dark:bg-neutral-900 p-8 rounded-3xl hover:shadow-xl cursor-pointer transition-all border border-transparent hover:border-teal-200 group">
-                    <div class="text-5xl mb-6">🎯</div>
-                    <h3 class="font-semibold text-xl mb-2 group-hover:text-teal-600">مقاصد الشريعة</h3>
-                    <p class="text-sm text-neutral-500">الحكمة والغاية</p>
-                </div>
-                <div onclick="filterCategory(this)" data-category="socio" class="category-card bg-white dark:bg-neutral-900 p-8 rounded-3xl hover:shadow-xl cursor-pointer transition-all border border-transparent hover:border-teal-200 group">
-                    <div class="text-5xl mb-6">👥</div>
-                    <h3 class="font-semibold text-xl mb-2 group-hover:text-teal-600">علم الاجتماع</h3>
-                    <p class="text-sm text-neutral-500">المجتمع والدين</p>
-                </div>
-                <!-- More can be added -->
-            </div>
-        </div>
-    </section>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="تبديل الوضع الفاتح والداكن" title="تبديل الإضاءة">
+          <span class="icon-sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7">
+              <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+          </span>
+          <span class="icon-moon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7">
+              <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z"/>
+            </svg>
+          </span>
+        </button>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-    <!-- Blog Posts -->
-    <section id="blog" class="py-24 bg-white dark:bg-neutral-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-end justify-between mb-12">
-                <div>
-                    <h2 class="heading-font text-5xl font-semibold">أحدث المقالات</h2>
-                    <p class="text-neutral-500">تأملات فقهية معاصرة</p>
-                </div>
-                <a href="#" class="hidden md:flex items-center gap-2 text-sm font-medium hover:text-teal-600">كل المقالات <i class="fa-solid fa-arrow-left"></i></a>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8" id="posts-container">
-                <!-- Sample posts populated by JS -->
-            </div>
-        </div>
-    </section>
+  <!-- المحتوى الرئيسي — يُملأ ديناميكيًا -->
+  <main id="app" class="app" role="main" tabindex="-1"></main>
 
-    <!-- Coffee Corner -->
-    <section id="coffee" class="py-24 bg-amber-50 dark:bg-neutral-900 border-t border-amber-100 dark:border-neutral-800">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="text-7xl mb-8">☕</div>
-            <h2 class="heading-font text-5xl font-semibold mb-6">زاوية القهوة</h2>
-            <p class="max-w-md mx-auto text-lg text-neutral-600 dark:text-neutral-400">كل فكرة جديدة تبدأ بفنجان قهوة عربية، وكل تأمل ينتهي بآخر.</p>
-            <div class="mt-12 bg-white dark:bg-neutral-800 p-8 rounded-3xl shadow-inner max-w-md mx-auto">
-                <p class="italic">"القهوة رفيق المتفكرين، والفقه نور القلوب"</p>
-                <div class="text-xs mt-6 text-amber-600">— أحمد زين</div>
-            </div>
-        </div>
-    </section>
+  <!-- تذييل -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>مدينة الفكر</strong>
+        <p>حيث يلتقي الفقه بالإنسان، والأصالة بالعصر، والعلم بفنجان قهوة.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#/specialties" data-link>التخصصات</a>
+        <a href="#/articles" data-link>المقالات</a>
+        <a href="#/coffee" data-link>ركن القهوة</a>
+        <a href="#/about" data-link>عن المدونة</a>
+      </div>
+      <p class="footer-copy">
+        <span class="ornament">۞</span>
+        كُتبت بروح الفقه ونَفَس العصر
+        <span class="ornament">۞</span>
+      </p>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="bg-neutral-900 text-neutral-400 py-20">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12">
-            <div class="md:col-span-5">
-                <div class="flex items-center gap-3 text-white mb-6">
-                    <div class="w-9 h-9 bg-teal-500 rounded-2xl flex items-center justify-center">ﷺ</div>
-                    <span class="heading-font text-3xl">ظلال الفقه</span>
-                </div>
-                <p class="max-w-sm">مدونة شخصية تجمع بين أصالة التراث الإسلامي وروح العصر، لخدمة العقل والقلب.</p>
-                
-                <div class="mt-12 flex gap-6 text-2xl">
-                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            
-            <div class="md:col-span-3">
-                <h4 class="text-white font-semibold mb-6">روابط سريعة</h4>
-                <ul class="space-y-3 text-sm">
-                    <li><a href="#about" class="hover:text-white">من أنا</a></li>
-                    <li><a href="#blog" class="hover:text-white">المقالات</a></li>
-                    <li><a href="#" class="hover:text-white">الكتب الموصى بها</a></li>
-                </ul>
-            </div>
-            
-            <div class="md:col-span-4">
-                <h4 class="text-white font-semibold mb-6">ابق على تواصل</h4>
-                <form class="space-y-4">
-                    <input type="email" placeholder="بريدك الإلكتروني" 
-                           class="w-full bg-neutral-800 border border-neutral-700 focus:border-teal-500 rounded-2xl px-6 py-4 outline-none">
-                    <button type="button" 
-                            class="w-full bg-teal-600 hover:bg-teal-500 transition-colors text-white py-4 rounded-2xl font-medium">اشترك في النشرة</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="text-center text-xs mt-20 border-t border-neutral-800 pt-8">
-            © ٢٠٢٦ أحمد زين العابدين • مصممة بحب للتراث والعصر
-        </div>
-    </footer>
-
-    <script>
-        // Tailwind script already loaded via CDN
-        
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
-            const icon = document.getElementById('theme-icon');
-            if (document.documentElement.classList.contains('dark')) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-        
-        // Load saved theme
-        if (localStorage.getItem('theme') === 'dark' || 
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            document.getElementById('theme-icon').classList.remove('fa-moon');
-            document.getElementById('theme-icon').classList.add('fa-sun');
-        }
-        
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        
-        // Sample blog posts
-        const samplePosts = [
-            {
-                title: "تطبيق مقاصد الشريعة في قوانين الأسرة المعاصرة",
-                excerpt: "قراءة نقدية فقهية في مشروع قانون الأسرة المصري ٢٠٢٦، مع التركيز على حفظ النسل والنفس.",
-                date: "١٨ يوليو ٢٠٢٦",
-                category: "maqasid",
-                image: "https://picsum.photos/id/1016/600/400"
-            },
-            {
-                title: "الحنابلة والتجديد: دراسة في أصول الفقه المعاصر",
-                excerpt: "كيف يمكن للمذهب الحنبلي أن يواجه تحديات العصر دون فقدان أصالته؟",
-                date: "١٥ يوليو ٢٠٢٦",
-                category: "fiqh",
-                image: "https://picsum.photos/id/1074/600/400"
-            },
-            {
-                title: "علم النفس والتزكية: تقاطعات بين التراث والعلوم الحديثة",
-                excerpt: "استكشاف مفاهيم الغريزة والفطرة في ضوء علم النفس المعاصر.",
-                date: "١٠ يوليو ٢٠٢٦",
-                category: "socio",
-                image: "https://picsum.photos/id/201/600/400"
-            }
-        ];
-        
-        function renderPosts(posts) {
-            const container = document.getElementById('posts-container');
-            container.innerHTML = '';
-            
-            posts.forEach(post => {
-                const cardHTML = `
-                    <div class="post-card bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl overflow-hidden group">
-                        <img src="${post.image}" alt="${post.title}" class="w-full h-56 object-cover">
-                        <div class="p-8">
-                            <div class="flex justify-between items-center text-xs mb-4">
-                                <span class="px-4 py-1 bg-teal-50 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-3xl">${post.category}</span>
-                                <span class="text-neutral-400">${post.date}</span>
-                            </div>
-                            <h3 class="font-semibold text-xl leading-tight mb-4 line-clamp-2 group-hover:text-teal-600 transition-colors">${post.title}</h3>
-                            <p class="text-neutral-600 dark:text-neutral-400 text-[15px] line-clamp-3">${post.excerpt}</p>
-                            <div class="mt-8 flex items-center justify-between">
-                                <button onclick="alert('هذه مدونة محلية، يمكنك تعديل المحتوى مباشرة في الملف HTML')" 
-                                        class="text-teal-600 text-sm flex items-center gap-2 hover:gap-3 transition-all">
-                                    اقرأ المزيد
-                                    <i class="fa-solid fa-arrow-left"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += cardHTML;
-            });
-        }
-        
-        renderPosts(samplePosts);
-        
-        // Mobile menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-        
-        // Category filter (demo)
-        function filterCategory(el) {
-            const cat = el.dataset.category;
-            alert(`تصفية حسب التصنيف: ${cat} (هذا نموذج - يمكن تطويره بسهولة)`);
-            // In real implementation: filter posts by data attr
-        }
-        
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-        
-        console.log('%cمدونة ظلال الفقه تم تحميلها بنجاح ✨\nأضف مقالاتك الجديدة بسهولة في قسم samplePosts أو أنشئ صفحات فرعية.', 'color: #14b8a6; font-family: monospace');
-    </script>
+  <!--
+    ═══════════════════════════════════════════════════════════
+    محتوى المدونة — عدّل من هنا بسهولة
+    الملف: assets/js/content.js
+    ═══════════════════════════════════════════════════════════
+  -->
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
